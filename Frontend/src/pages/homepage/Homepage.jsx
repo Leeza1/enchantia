@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 //import { testApi } from "../../apis/Api";
 import { testApi, getAllProductsApi } from '../../apis/Api'
 import { Link } from "react-router-dom";
-//import image
-// import image from '../assets/images/image.jpg';
-import image from "../../assets/images/image.jpg"
 // import testapi
 
 
@@ -173,7 +170,7 @@ const Homepage = () => {
             <img src="https://weblearnbd.net/tphtml/shofy-prv/shofy/assets/img/slider/3/slider-1.jpg" class="d-block w-100" alt="Sunset Over the City" />
             <div class=" container mask d-none d-md-block carorusel-overlay ">
               <h5 className="secondary-heading">Winter Collection 2023</h5>
-              <p className="primary-heading">Be your kind <br /> of Beauty.</p>
+              <p className="primary-heading">Jewelry with a <br /> Mordern twist</p>
               <div class="d-flex flex-row mb-3">
                 <div class="p-2">High-end <br /> Cosmetics</div>
                 <div class="p-2">Vegan <br /> Product</div>
@@ -182,22 +179,30 @@ const Homepage = () => {
               <button type="button" class="btn btn-top" data-mdb-ripple-color="dark">Discover Now</button>
             </div>
           </div>
-
-          
-          <div class="carousel-item">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).webp" class="d-block w-100" alt="Canyon at Nigh" />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="carousel-item active ">
+            <img src="https://weblearnbd.net/tphtml/shofy-prv/shofy/assets/img/slider/3/slider-1.jpg" class="d-block w-100" alt="Sunset Over the City" />
+            <div class=" container mask d-none d-md-block carorusel-overlay ">
+              <h5 className="secondary-heading">Winter Collection 2023</h5>
+              <p className="primary-heading">Jewelry with a <br /> Mordern twist</p>
+              <div class="d-flex flex-row mb-3">
+                <div class="p-2">High-end <br /> Cosmetics</div>
+                <div class="p-2">Vegan <br /> Product</div>
+                <div class="p-2">Express <br /> Make-up</div>
+              </div>
+              <button type="button" class="btn btn-top" data-mdb-ripple-color="dark">Discover Now</button>
             </div>
           </div>
-
-          
-          <div class="carousel-item">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp" class="d-block w-100" alt="Cliff Above a Stormy Sea" />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <div class="carousel-item active ">
+            <img src="https://weblearnbd.net/tphtml/shofy-prv/shofy/assets/img/slider/3/slider-1.jpg" class="d-block w-100" alt="Sunset Over the City" />
+            <div class=" container mask d-none d-md-block carorusel-overlay ">
+              <h5 className="secondary-heading">Winter Collection 2023</h5>
+              <p className="primary-heading">Jewelry with a <br /> Mordern twist</p>
+              <div class="d-flex flex-row mb-3">
+                <div class="p-2">High-end <br /> Cosmetics</div>
+                <div class="p-2">Vegan <br /> Product</div>
+                <div class="p-2">Express <br /> Make-up</div>
+              </div>
+              <button type="button" class="btn btn-top" data-mdb-ripple-color="dark">Discover Now</button>
             </div>
           </div>
         </div>
@@ -213,9 +218,7 @@ const Homepage = () => {
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div>
-        <img src={image} alt="" />
-      </div>
+     
     </div>
   );
 };
