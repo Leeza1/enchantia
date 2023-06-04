@@ -14,7 +14,6 @@ const Navbar = () => {
     navigate("/login")
   }
 
-
   return (
     <>
       {/* <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -84,7 +83,7 @@ const Navbar = () => {
         </div>
       </nav> */}
 
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar " >
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar  top-nav-collapse" >
 
         <div class="container">
 
