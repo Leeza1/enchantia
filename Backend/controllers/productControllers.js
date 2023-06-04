@@ -123,6 +123,4 @@ router.delete("/delete_product/:id", authGuard, async (req, res) => {
 });
 
 
-
-
 module.exports = router;

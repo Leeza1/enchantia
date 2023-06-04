@@ -21,12 +21,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* about */}
-          <Route path="/about" element={<About />} />
-
+          
           {/* Admin routes */}
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route path="/admin/product/edit/:id" element={<AdminProductEdit />} />
+          <Route path="/admin/products/edit/:id" element={<AdminProductEdit />} />
+         
         </Routes>
       </Router>
     </>

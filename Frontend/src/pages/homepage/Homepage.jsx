@@ -168,9 +168,9 @@ const Homepage = () => {
           ></button>
         </div>
 
-      
+
         <div class="carousel-inner">
-    
+
           <div class="carousel-item active ">
             <img src="https://weblearnbd.net/tphtml/shofy-prv/shofy/assets/img/slider/3/slider-1.jpg" class="d-block w-100" alt="Sunset Over the City" />
             <div class=" container mask  d-md-block carorusel-overlay ">
@@ -178,17 +178,17 @@ const Homepage = () => {
               <p className="primary-heading">Jewelry with a <br /> Mordern twist</p>
               <div class="d-flex flex-row mb-3">
                 <div class="p-2 d-flex justify-content-between">
-                  <div><img src={necklace} alt="" className="banner-icon"/></div>
+                  <div><img src={necklace} alt="" className="banner-icon" /></div>
                   <div className="ms-2"> High-end <br /> Jewelry</div>
-                  </div>
+                </div>
                 <div class="p-2 d-flex justify-content-between">
-                  <div><img src={jewelry} alt="" className="banner-icon"/></div>
+                  <div><img src={jewelry} alt="" className="banner-icon" /></div>
                   <div className="ms-2">High <br /> Quality</div>
-                  </div>
+                </div>
                 <div class="p-2 d-flex justify-content-between">
-                  <div><img src={diamond} alt="" className="banner-icon"/></div>
+                  <div><img src={diamond} alt="" className="banner-icon" /></div>
                   <div className="ms-2">Expressive <br /> Design</div>
-                  </div>
+                </div>
               </div>
               <button type="button" class="btn btn-top" data-mdb-ripple-color="dark">Discover Now</button>
             </div>
@@ -200,17 +200,17 @@ const Homepage = () => {
               <p className="primary-heading">Jewelry with a <br /> Mordern twist</p>
               <div class="d-flex flex-row mb-3">
                 <div class="p-2 d-flex justify-content-between">
-                  <div><img src={necklace} alt="" className="banner-icon"/></div>
+                  <div><img src={necklace} alt="" className="banner-icon" /></div>
                   <div className="ms-2"> High-end <br /> Jewelry</div>
-                  </div>
+                </div>
                 <div class="p-2 d-flex justify-content-between">
-                  <div><img src={jewelry} alt="" className="banner-icon"/></div>
+                  <div><img src={jewelry} alt="" className="banner-icon" /></div>
                   <div className="ms-2">High <br /> Quality</div>
-                  </div>
+                </div>
                 <div class="p-2 d-flex justify-content-between">
-                  <div><img src={diamond} alt="" className="banner-icon"/></div>
+                  <div><img src={diamond} alt="" className="banner-icon" /></div>
                   <div className="ms-2">Expressive <br /> Design</div>
-                  </div>
+                </div>
               </div>
               <button type="button" class="btn btn-top" data-mdb-ripple-color="dark">Discover Now</button>
             </div>
@@ -222,25 +222,25 @@ const Homepage = () => {
               <p className="primary-heading">Jewelry with a <br /> Mordern twist</p>
               <div class="d-flex flex-row mb-3">
                 <div class="p-2 d-flex justify-content-between">
-                  <div><img src={necklace} alt="" className="banner-icon"/></div>
+                  <div><img src={necklace} alt="" className="banner-icon" /></div>
                   <div className="ms-2"> High-end <br /> Jewelry</div>
-                  </div>
+                </div>
                 <div class="p-2 d-flex justify-content-between">
-                  <div><img src={jewelry} alt="" className="banner-icon"/></div>
+                  <div><img src={jewelry} alt="" className="banner-icon" /></div>
                   <div className="ms-2">High <br /> Quality</div>
-                  </div>
+                </div>
                 <div class="p-2 d-flex justify-content-between">
-                  <div><img src={diamond} alt="" className="banner-icon"/></div>
+                  <div><img src={diamond} alt="" className="banner-icon" /></div>
                   <div className="ms-2">Expressive <br /> Design</div>
-                  </div>
+                </div>
               </div>
               <button type="button" class="btn btn-top" data-mdb-ripple-color="dark">Discover Now</button>
             </div>
           </div>
         </div>
-        
 
-        
+
+
         <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="prev" className="invisible">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -251,24 +251,24 @@ const Homepage = () => {
         </button>
       </div>
       <section className="about-us container-padding">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6">
-            <img src="https://a6n4d3q9.rocketcdn.me/wp-content/uploads/2017/11/jewelry-girl-welcome-row-1.png" alt=""  class="img-fluid" />
-          </div>
-          <div className="col-md-6 about-intro py-5 px-3">
-            <h5 className="section-subheading">Enchantia</h5>
-            <h1 className="section-heading">JEWELRY <br /> STORE</h1>
-            <p>An sincerity so extremity he additions. Her yet there truth merit. Mrs all projecting favourable now unpleasing. Son law garden chatty temper. Oh children provided to mr elegance marriage strongly.</p>
-            <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Discover Now</button>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <img src="https://a6n4d3q9.rocketcdn.me/wp-content/uploads/2017/11/jewelry-girl-welcome-row-1.png" alt="" class="img-fluid" />
+            </div>
+            <div className="col-md-6 about-intro py-5 px-3">
+              <h5 className="section-subheading">Enchantia</h5>
+              <h1 className="section-heading">JEWELRY <br /> STORE</h1>
+              <p>An sincerity so extremity he additions. Her yet there truth merit. Mrs all projecting favourable now unpleasing. Son law garden chatty temper. Oh children provided to mr elegance marriage strongly.</p>
+              <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Discover Now</button>
+            </div>
           </div>
         </div>
-      </div>
       </section>
       <section className="category-section container-padding">
         <div className=" container">
-            <h5 className="section-subheading">Product Collection</h5>
-            <h5 className="section-heading1">Discover our products</h5>
+          <h5 className="section-subheading">Product Collection</h5>
+          <h5 className="section-heading1">Discover our products</h5>
         </div>
         <div className="container mt-5">
           <div className="row">
@@ -282,31 +282,39 @@ const Homepage = () => {
         </div>
       </section>
       <section className="best-seller-section container-padding">
-      <div className=" container">
-            <h5 className="section-subheading">Best Seller</h5>
-            <h5 className="section-heading1">Enjoy the best Seller product this week</h5>
+        <div className=" container">
+          <h5 className="section-subheading">Best Seller</h5>
+          <h5 className="section-heading1">Enjoy the best Seller product this week</h5>
         </div>
         <div className="container mt-5">
           <div className="row">
-            <div className="col-sm-6 col-md-3  best-seller-product">
+            {
+              products.map((product) => {
+                return (
+                  <Link to={`/products/details/${product._id}`} className="col">
+                    <div className="best-seller-product">
+                      <div className="text-center py-4">
+                        <div className="product-image">
+                          <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5656635_png/florere-stud-earrings--flower--pink--gold-tone-plated-swarovski-5656635.png" className="img-fluid" alt="" />
+                        </div>
+                        <div className="product-description">
+                          <p className="section-subheading mb-1">{product.name}</p>
+                          <p className="mb-0 best-seller-heading">{product.description}</p>
+                          <p className="best-seller-sub-heading">{product.category}</p>
+                          <hr />
+                          <p className="mb-0 best-seller-heading">{product.price}</p>
+                          <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Shop Now</button>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                )
+              })
+            }
+            {/* <div className="col-sm-6 col-md-3  best-seller-product">
               <div className="text-center py-4">
                 <div className="product-image">
-                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5656635_png/florere-stud-earrings--flower--pink--gold-tone-plated-swarovski-5656635.png" className="img-fluid"  alt="" />
-                </div>
-                <div className="product-description">
-                  <p className="section-subheading mb-1">Earing</p>
-                  <p className="mb-0 best-seller-heading">Florere stud earrings</p>
-                  <p className="best-seller-sub-heading">Flower, Pink, Gold-tone plated</p>
-                  <hr />
-                  <p className="mb-0 best-seller-heading">$102.00</p>
-                  <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Shop Now</button>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-md-3  best-seller-product">
-              <div className="text-center py-4">
-                <div className="product-image">
-                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5658397_png/gema-drop-earrings--mixed-cuts--flower--pink--rhodium-plated-swarovski-5658397.png" className="img-fluid"  alt="" />
+                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5658397_png/gema-drop-earrings--mixed-cuts--flower--pink--rhodium-plated-swarovski-5658397.png" className="img-fluid" alt="" />
                 </div>
                 <div className="product-description">
                   <p className="section-subheading mb-1">Earing</p>
@@ -317,11 +325,11 @@ const Homepage = () => {
                   <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Shop Now</button>
                 </div>
               </div>
-            </div>
-            <div className="col-sm-6 col-md-3  best-seller-product">
+            </div> */}
+            {/* <div className="col-sm-6 col-md-3  best-seller-product">
               <div className="text-center py-4">
                 <div className="product-image">
-                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5652822_png/gema-bracelet--mixed-cuts--green--gold-tone-plated-swarovski-5652822.png" className="img-fluid"  alt="" />
+                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5652822_png/gema-bracelet--mixed-cuts--green--gold-tone-plated-swarovski-5652822.png" className="img-fluid" alt="" />
                 </div>
                 <div className="product-description">
                   <p className="section-subheading mb-1">Bracelet</p>
@@ -332,11 +340,11 @@ const Homepage = () => {
                   <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Shop Now</button>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="col-sm-6 col-md-3  best-seller-product">
               <div className="text-center py-4">
                 <div className="product-image">
-                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5661344_png/fashion-swan-pendant--swan--white--rhodium-plated-swarovski-5661344.png" className="img-fluid"  alt="" />
+                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5661344_png/fashion-swan-pendant--swan--white--rhodium-plated-swarovski-5661344.png" className="img-fluid" alt="" />
                 </div>
                 <div className="product-description">
                   <p className="section-subheading mb-1">Necklace</p>
@@ -353,7 +361,7 @@ const Homepage = () => {
             <div className="col-sm-6 col-md-3 best-seller-product">
               <div className="text-center py-4">
                 <div className="product-image">
-                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5662493_png/gema-pendant--mixed-cuts--flower--pink--rhodium-plated-swarovski-5662493.png" className="img-fluid"  alt="" />
+                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5662493_png/gema-pendant--mixed-cuts--flower--pink--rhodium-plated-swarovski-5662493.png" className="img-fluid" alt="" />
                 </div>
                 <div className="product-description">
                   <p className="section-subheading mb-1">Necklace</p>
@@ -368,7 +376,7 @@ const Homepage = () => {
             <div className="col-sm-6 col-md-3 best-seller-product">
               <div className="text-center py-4">
                 <div className="product-image">
-                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5661344_png/fashion-swan-pendant--swan--white--rhodium-plated-swarovski-5661344.png" className="img-fluid"  alt="" />
+                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_auto,f_auto,w_auto/5661344_png/fashion-swan-pendant--swan--white--rhodium-plated-swarovski-5661344.png" className="img-fluid" alt="" />
                 </div>
                 <div className="product-description">
                   <p className="section-subheading mb-1">Necklace</p>
@@ -383,7 +391,7 @@ const Homepage = () => {
             <div className="col-sm-6 col-md-3 best-seller-product">
               <div className="text-center py-4">
                 <div className="product-image">
-                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5652822_png/gema-bracelet--mixed-cuts--green--gold-tone-plated-swarovski-5652822.png" className="img-fluid"  alt="" />
+                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5652822_png/gema-bracelet--mixed-cuts--green--gold-tone-plated-swarovski-5652822.png" className="img-fluid" alt="" />
                 </div>
                 <div className="product-description">
                   <p className="section-subheading mb-1">Bracelet</p>
@@ -398,7 +406,7 @@ const Homepage = () => {
             <div className="col-sm-6 col-md-3 best-seller-product">
               <div className="text-center py-4">
                 <div className="product-image">
-                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5658397_png/gema-drop-earrings--mixed-cuts--flower--pink--rhodium-plated-swarovski-5658397.png" className="img-fluid"  alt="" />
+                  <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5658397_png/gema-drop-earrings--mixed-cuts--flower--pink--rhodium-plated-swarovski-5658397.png" className="img-fluid" alt="" />
                 </div>
                 <div className="product-description">
                   <p className="section-subheading mb-1">Earing</p>
