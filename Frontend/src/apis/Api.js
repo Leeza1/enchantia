@@ -36,5 +36,14 @@ export const  getSingleProductApi  = (id) => Api.get(`/api/product/get_product/$
 //update product route
 export const  updateProductApi  = (id,data) => Api.put(`/api/product/update_product/${id}` , data, config);
 
-//delete product route
-export const  deleteProductApi  = (id) => Api.delete(`/api/product/delete_product/${id}`);
+// delete product route
+export const deleteProductApi = (id) => Api.delete(`/api/product/delete_product/${id}`, config);
+
+//create order
+export const createOrderApi = (data) => Api.post('/api/orders/create', data, config);
+
+//get orders by user
+export const getOrdersByUserApi =(data) => Api.get('/api/orders/getOrdersByUserId', config);
+
+//get all orders
+export const getAllOrdersApi = () => Api.get('/api/orders/getAllOrders', config);
