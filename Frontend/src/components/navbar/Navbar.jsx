@@ -102,30 +102,31 @@ const Navbar = () => {
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <Link class="navbar-brand mt-2 mt-lg-0" href="#">
               <img
                 src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
                 height="15"
                 alt="MDB Logo"
                 loading="lazy"
               />
-            </a>
+            </Link>
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center  ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <Link class="nav-link" to={'/'}>Home</Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Shop</a>
+                <Link class="nav-link" to={'/'}>Shop</Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <Link class="nav-link" to={'/'}>About</Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
+                <Link class="nav-link" to={'/'}>Blog</Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <Link class="nav-link" to={'/'}>Contact</Link>
+
               </li>
             </ul>
 
@@ -135,13 +136,13 @@ const Navbar = () => {
 
           <div class="d-flex align-items-center">
 
-            <a class="link-secondary me-3" href="#">
+            <Link class="link-secondary me-3" href="#">
               <i class="fas fa-shopping-cart"></i>
-            </a>
+            </Link>
 
 
             <div class="dropdown">
-              <a
+              <Link
                 class="link-secondary me-3 dropdown-toggle hidden-arrow"
                 href="#"
                 id="navbarDropdownMenuLink"
@@ -151,25 +152,25 @@ const Navbar = () => {
               >
                 <i class="fas fa-bell"></i>
                 <span class="badge rounded-pill badge-notification bg-danger">1</span>
-              </a>
+              </Link>
               <ul
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li>
-                  <a class="dropdown-item" href="#">Some news</a>
+                  <Link class="dropdown-item" href="#">Some news</Link>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">Another news</a>
+                  <Link class="dropdown-item" href="#">Another news</Link>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <Link class="dropdown-item" href="#">Something else here</Link>
                 </li>
               </ul>
             </div>
 
             <div class="dropdown">
-              <a
+              <Link
                 class="dropdown-toggle d-flex align-items-center hidden-arrow"
                 href="#"
                 id="navbarDropdownMenuAvatar"
@@ -184,19 +185,16 @@ const Navbar = () => {
                   alt="Black and White Portrait of a Man"
                   loading="lazy"
                 />
-              </a>
+              </Link>
               <ul
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdownMenuAvatar"
               >
                 <li>
-                  <a class="dropdown-item" href="#">My profile</a>
+                  <Link class="dropdown-item" to={'/register'}>Register</Link>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">Settings</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Logout</a>
+                  <Link class="dropdown-item" to={'/login'}>Login</Link>
                 </li>
               </ul>
             </div>

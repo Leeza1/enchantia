@@ -287,11 +287,22 @@ const Homepage = () => {
           <h5 className="section-heading1">Enjoy the best Seller product this week</h5>
         </div>
         <div className="container mt-5">
-          <div className="row">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
             {
               products.map((product) => {
                 return (
                   <Link to={`/products/details/${product._id}`} className="col">
+                    {/* <div className="best-seller-product">
+                      <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5656635_png/florere-stud-earrings--flower--pink--gold-tone-plated-swarovski-5656635.png" className="img-fluid" alt="" />
+                      <div className="product-description text-center">
+                        <p className="section-subheading mb-1">{product.category}</p>
+                        <p className="mb-0 best-seller-heading">{product.name}</p>
+                        <p className="best-seller-sub-heading">{product.price}</p>
+                        <hr />
+                        <p className="mb-0 best-seller-heading">{product.price}</p>
+                        <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Shop Now</button>
+                      </div>
+                    </div> */}
                     <div className="best-seller-product">
                       <div className="text-center py-4">
                         <div className="product-image">
