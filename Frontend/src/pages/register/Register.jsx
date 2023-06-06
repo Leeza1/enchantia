@@ -73,74 +73,81 @@ const Register = () => {
   };
 
   return (
-    <div className="container">
-      <div className="col-md-5">
-        <h1>Register a user</h1>
+    <section className="container-fluid register-page">
+      <div className="container register-form ">
+      <div className="col-md-6 login-row">
+        <h1 className="login-heading">Register a user</h1>
 
         <form action="">
-          <div className="form-group">
-            <label htmlFor="name">Firstname</label>
-            <input
-              onChange={handleFname}
-              type="text"
-              name="name"
-              id="name"
-              className="form-control"
-            />
+          <div className="row">
+            <div className="col-sm-12 col-md-6">
+              <div className="form-group">
+              <input
+                onChange={handleFname}
+                type="text"
+                name="name"
+                id="name"
+                className="form-control form-input" placeholder="First Name"
+              />
+              </div>
+            </div>
+            <div className="col-sm-12 col-md-6">
+              <div className="form-group">
+              <input
+                onChange={handleLname}
+                type="text"
+                name="lastname"
+                id="lastname"
+                className="form-control form-input" placeholder="Last Name"
+              />
+              </div>
+            </div>
           </div>
           <div className="form-group">
-            <label htmlFor="lastname">Lastname</label>
-            <input
-              onChange={handleLname}
-              type="text"
-              name="lastname"
-              id="lastname"
-              className="form-control"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
+            
             <input
               onChange={handleEmail}
               type="email"
               name="email"
               id="email"
-              className="form-control"
+              className="form-control form-input" placeholder="Email"
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            
             <input
               onChange={handlePass}
               type="password"
               name="password"
               id="password"
-              className="form-control"
+              className="form-control form-input" placeholder="Password"
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password2">Confirm Password</label>
+            
             <input
               onChange={handlePass2}
               type="password"
               name="password2"
               id="password2"
-              className="form-control"
+              className="form-control form-input" placeholder="Confirm Password"
             />
           </div>
+          <p className="para">By providing your personal information, you agreed to our Privacy & Cookies Policy.</p>
           <button
             type="submit"
-            className="btn btn-primary mt-3 w-100"
+            className="btn btn-about mt-3 w-100"
             onClick={handleSubmit}
           >
             Register
           </button>
         </form>
-        <p>
+        <p className="para text-center mt-3">
           Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>
-    </div>
+      </div>
+    </section>
   );
 };
 

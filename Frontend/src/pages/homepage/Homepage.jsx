@@ -8,6 +8,8 @@ import diamond from "../../assets/images/diamond.png"
 import discount from "../../assets/images/discount.png"
 import discount2 from "../../assets/images/discount2.png"
 import discount3 from "../../assets/images/discount3.png"
+import about1 from "../../assets/images/about1.png"
+
 // import testapi
 
 const Homepage = () => {
@@ -253,22 +255,29 @@ const Homepage = () => {
       <section className="about-us container-padding">
         <div className="container">
           <div className="row">
-            <div className="col-md-6">
-              <img src="https://a6n4d3q9.rocketcdn.me/wp-content/uploads/2017/11/jewelry-girl-welcome-row-1.png" alt="" class="img-fluid" />
+            <div className="col-md-6 col-sm-12">
+              <img src={about1} alt="" class="img-fluid" />
             </div>
-            <div className="col-md-6 about-intro py-5 px-3">
+            <div className="col-md-6 col-sm-12 about-intro py-5 px-3">
               <h5 className="section-subheading">Enchantia</h5>
               <h1 className="section-heading">JEWELRY <br /> STORE</h1>
-              <p>An sincerity so extremity he additions. Her yet there truth merit. Mrs all projecting favourable now unpleasing. Son law garden chatty temper. Oh children provided to mr elegance marriage strongly.</p>
-              <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Discover Now</button>
+              <p className="para">An sincerity so extremity he additions. Her yet there truth merit. Mrs all projecting favourable now unpleasing. Son law garden chatty temper. Oh children provided to mr elegance marriage strongly.</p>
+              <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Discover All</button>
             </div>
           </div>
         </div>
       </section>
       <section className="category-section container-padding">
-        <div className=" container">
+        <div className=" container ">
+          <div className="row">
+          <div className="col-sm-12 col-md-6">
           <h5 className="section-subheading">Product Collection</h5>
-          <h5 className="section-heading1">Discover our products</h5>
+          <h5 className="section-heading1 ">Discover our products</h5>
+          </div>
+          <div className="col-sm-12 col-md-6">
+          <button type="button" class="btn btn-about mt-4 float-xs-start float-md-end" data-mdb-ripple-color="dark">Discover Now</button>
+          </div>
+          </div>
         </div>
         <div className="container mt-5">
           <div className="row">
@@ -444,6 +453,47 @@ const Homepage = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section className="special-section container-padding">
+      <div className=" container ">
+          <div className="row">
+          <div className="col-sm-12 col-md-7">
+          <h5 className="section-subheading">Only at Enchantia</h5>
+          <h5 className="section-heading1 ">Strive to make your experience brilliant </h5>
+          </div>
+          <div className="col-sm-12 col-md-5">
+          <button type="button" class="btn btn-about mt-4 float-xs-start float-md-end" data-mdb-ripple-color="dark">Contact us</button>
+          </div>
+          </div>
+      </div>
+      <div className="container mt-5"> 
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+                <div className="special-img">
+                  <img src="https://asset.swarovski.com/images/c_crop,g_xy_center,w_3350,h_4465,x_3186,y_2235/dpr_auto,f_auto,q_auto,c_lfill,w_484,h_644/swa-cms/B2C_BRAND_VISUAL_IW-PARIS-PARLY2_SL_GL/.jpg" alt="" className="img-fluid" />
+                </div>
+                <div className="special-text mt-3">
+                  <p className="section-subheading">Visit Our Show Room</p>
+                  <div className="divisor"></div>
+                  <p className="para">Meet our personal jewelers, explore bestselling styles, pick up an online order, arrange to preview something from our online collection and so much more.</p>
+                  <button type="button" class="btn btn-about mb-6" data-mdb-ripple-color="dark">Visit Us now</button>
+                </div>
+              </div>
+              <div className="col-md-6 col-sm-12">
+                <div className="special-img">
+                  <img src="https://asset.swarovski.com/images/c_crop,g_xy_center,w_6372,h_8495,x_3186,y_4248/dpr_auto,f_auto,q_auto,c_lfill,w_768,h_1024/swa-cms/SS22_BRAND_VISUAL-BODYP-EAR-2_OF_GL_300DPI_RGB/5641406-5614090-5614932-5614296.jpg" alt="" className="img-fluid" />
+                </div>
+                
+                <div className="special-text mt-3">
+                  <p className="section-subheading">SCHEDULE AN APPOINTMENT</p>
+                  <div className="divisor"></div>
+                  <p className="para">Book a fun and interactive appointment with a diamond expert and get up-close views of diamond and jewelry options from the comfort of your own home.</p>
+                  <button type="button" class="btn btn-about mb-6" data-mdb-ripple-color="dark">Schedule now</button>
+                </div>
+              </div>
+            </div>
+      </div>
+      
       </section>
     </div>
   );
