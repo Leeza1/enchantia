@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,400;1,500;1,600&display=swap');
+
+
+.main-body{
+  padding: 0;
+  color: white;
+  font-family: 'Jost', sans-serif;
+}
+/* font */
+.primary-heading{
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 1.06;
+}
+.secondary-heading{
+  font-family: 'Lora', serif;
+}
+.nav-item a{
+  color:white;
+  font-family: 'Jost', sans-serif;
+  font-size: 17px;
+}
+/* carousel */
+.carousel{
+  width: 100%;
+  height: 100vh; /* Change the height to 50% of viewport height */
+  position: relative;
+}
+.carousel img {
+  object-fit: cover; /* Use object-fit to cover the image within the carousel */
+  width: 100%;
+  height: 100vh; /* Set the height of the image to 100% to fill the carousel */
+}
+.carorusel-overlay{
+  top:30%;
+}
+.btn-top{
+  border: 1px solid white;
+  color: white;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 8px 29px;
+  font-size: 16px;
+--mdb-btn-box-shadow: none;
+
+}
+:hover.btn-top {
+  background-color: #010f1c;
+  -webkit-transition: background-color 1s ease-out;
+  -moz-transition: background-color 1s ease-out;
+  -o-transition: background-color 1s ease-out;
+  transition: background-color 1s ease-out;
+}
+.side-arrow{
+  border-right: 1px solid;
+}
