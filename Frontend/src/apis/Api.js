@@ -47,3 +47,18 @@ export const getOrdersByUserApi =(data) => Api.get('/api/orders/getOrdersByUserI
 
 //get all orders
 export const getAllOrdersApi = () => Api.get('/api/orders/getAllOrders', config);
+
+//add necklace route
+export const addNecklaceApi = (data) => Api.post('/api/necklace/add',data, config);
+
+//get all necklace
+export const getAllNecklaceApi = (data) => Api.get('/api/necklace/get_necklaces');
+
+//get single necklace
+export const getSingleNecklaceApi = (id) => Api.get(`/api/necklace/get_necklace/${id}`,config);
+
+//update necklace route
+
+//update necklace route
+
+//delete necklace route

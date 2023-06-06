@@ -1,5 +1,7 @@
 const authGuard = require("../auth/authGuard");
 const necklaceModel = require("../models/necklaceModel");
+const cloudinary = require("cloudinary");
+const router = require("express").Router();
 
 router.post("/add", authGuard, async(req,res) => {
     console.log(req.body);
@@ -61,3 +63,95 @@ router.get("/get_necklaces", async (req, res) => {
         res.status(500).json({error: "Internal Server Error"});
     }
 });
+
+//get single product
+router.get("/get_necklace", async (req, res) => {
+    try{
+        const necklace = await necklaceModel.findById(req.params.id);
+        res.json(product);
+    }catch(error){
+        console.log(error);
+        res.status(500).json({error: "Internal server Error"});
+    }
+});
+
+//updating necklace
+router.put("/update_necklace/:id", async(req,res)=>{
+    console.log(req.body);
+    const { necklaceName, necklaceDescription, necklaceCategory, necklacePrice }=req.body;
+    const { necklaceImagea, necklaceImageb, necklaceImagec, necklaceImaged} = req.files;
+    if(!necklaceName || !necklaceDescription || !necklaceCategory || !necklacePrice){
+        return res.status(422).json({error: "Please enter all fields"});
+    }
+
+    try{
+        if(necklaceImagea){
+            const uploadedImage = await cloudinary.v2.uploader.upload(
+                necklaceImagea.path,
+                {
+                    folder: "enchantia",
+                    crop: "scale"
+                },
+                necklaceImageb.path,
+                {
+                    folder: "enchantia",
+                    crop: "scale"
+                },
+                necklaceImagec.path,
+                {
+                    folder: "enchantia",
+                    crop: "scale"
+                },
+                necklaceImaged.path,
+                {
+                    folder: "enchantia",
+                    crop: "scale"
+                }
+            );
+
+            //update necklace
+            const necklace = await necklaceModel.findById(req.params.id);
+                necklace.necname = necklaceName,
+                necklace.necdescription = necklaceDescription,
+                necklace.neccategory = necklaceCategory,
+                necklace.necprice = necklacePrice,
+                necklace.necimagea = uploadedImage.secure_url,
+                necklace.necimageb = uploadedImage.secure_url,
+                necklace.necimagec = uploadedImage.secure_url,
+                necklace.necimaged = uploadedImage.secure_url
+            
+            await necklace.save();
+
+            res.status(201).json({message: "product updated successfully"});
+        } else{
+
+            //update necklace
+            const necklace = await necklaceModel.findById(req.params.id)
+                necklace.necname = necklaceName,
+                necklace.necdescription = necklaceDescription,
+                necklace.neccategory = necklaceCategory,
+                necklace.necprice = necklacePrice,
+
+                await necklace.save();
+                
+                res.status(201).json({ message: "Product updated successfully"});
+        }
+    }catch(error) {
+        console.log(error);
+        res.status(500).json({error: "Internal Server Error"});
+    }
+});
+
+//delete product
+router.delete("/delete_necklace/:id", authGuard, async (req, res)=>{
+    try{
+        const necklace = await necklaceModel.findById(req.params.id);
+        await necklace.deleteOne();
+        res.status(200).json({message: "Product deleted successfully"});
+    } catch(error){
+        console.log(error);
+        res.status(500).json({ error: "Internal Server Error"});
+    }
+});
+
+module.exports = router;
