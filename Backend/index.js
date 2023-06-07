@@ -40,6 +40,12 @@ app.use('/api/product', require('./controllers/productControllers'));
 app.use('/api/orders', require('./controllers/orderController'));
 //middleware for necklace controller
 app.use('/api/necklace', require('./controllers/necklaceControllers'));
+//middleware for bangle controller
+app.use('/api/bangle',require('./controllers/bangleControllers'));
+//middleware for ring controller
+app.use('/api/ring', require('./controllers/ringControllers'));
+//middleware for earing controller
+app.use('/api/earing', require('./controllers/earingControllers'));
 
 
 // connect to database
