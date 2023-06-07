@@ -198,30 +198,51 @@ const Navbar = () => {
                         <>
                           <li><Link to={'/admin-dashboard'} class="dropdown-item">Admin Dashboard</Link></li>
                           <li><Link to={'/admin/orders'} class="dropdown-item">Admin Orders</Link></li>
+                          <li><Link class="dropdown-item" onClick={logout}>Logout</Link></li>
                         </>
                       ) : (
                         <>
                           <li><Link to={'/profile'} class="dropdown-item">Profile</Link></li>
                           <li><Link to={'/orders'} class="dropdown-item">My Orders</Link></li>
+                          <li><Link class="dropdown-item" onClick={logout}>Logout</Link></li>
                         </>
                       )
                     }
                   </ul>
                 </div>
               ) : (
-                <>
-                  <ul
-                    class="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdownMenuAvatar"
+                <div class="dropdown">
+                  <Link
+                    class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                    href="#"
+                    id="navbarDropdownMenuAvatar"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
                   >
-                    <li>
-                      <Link class="dropdown-item" to={'/register'}>Register</Link>
-                    </li>
-                    <li>
-                      <Link class="dropdown-item" to={'/login'}>Login</Link>
-                    </li>
-                  </ul>
-                </>
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                      class="rounded-circle"
+                      height="25"
+                      alt="Black and White Portrait of a Man"
+                      loading="lazy"
+                    />
+                    {/* {user.fname} */}
+                  </Link>
+                  <>
+                    <ul
+                      class="dropdown-menu dropdown-menu-end"
+                      aria-labelledby="navbarDropdownMenuAvatar"
+                    >
+                      <li>
+                        <Link class="dropdown-item" to={'/register'}>Register</Link>
+                      </li>
+                      <li>
+                        <Link class="dropdown-item" to={'/login'}>Login</Link>
+                      </li>
+                    </ul>
+                  </>
+                </div>
               )
             }
 

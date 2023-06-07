@@ -38,6 +38,8 @@ app.use('/api/user', require('./controllers/userControllers'));
 app.use('/api/product', require('./controllers/productControllers'));
 //middleware for order controller
 app.use('/api/orders', require('./controllers/orderController'));
+//middleware for necklace controller
+app.use('/api/necklace', require('./controllers/necklaceControllers'));
 
 
 // connect to database
