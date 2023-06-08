@@ -10,6 +10,9 @@ import AdminDashboard from "./pages/admin/AdminDashboard/AdminDashboard";
 import AdminProductEdit from "./pages/admin/AdminProductEdit/AdminProductEdit";
 import ProductDetails from "./pages/productDetails/ProductDetails";
 import About from "./pages/about/About";
+import Orders from "./pages/orders/Orders";
+import AdminOrders from "./pages/admin/AdminOrders/AdminOrders";
+import Cart from "./pages/cart/Cart";
 function App() {
   return (
     <>
@@ -18,16 +21,32 @@ function App() {
         <ToastContainer />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/products/details/:id" element={<ProductDetails />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          
 
+          {/* about */}
+          <Route path="/about" element={<About />} />
+
+          {/* product details */}
+          <Route path="/products/details/:id" element={<ProductDetails />} />
+
+          {/* Login */}
+          <Route path="/login" element={<Login />} />
+
+          {/* Register */}
+          <Route path="/register" element={<Register />} />
+
+          {/*contact */}
+          {/* <Route path="/contact" element={<Contact />} /> */}
+          
+          {/* Order */}
+          <Route path="/orders" element={<Orders />} />
+
+          {/* cart */}
+          <Route path="/cart" element={<Cart />} />
           
           {/* Admin routes */}
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin/products/edit/:id" element={<AdminProductEdit />} />
+          <Route path="/admin/orders" element={<AdminOrders />} />
          
         </Routes>
       </Router>

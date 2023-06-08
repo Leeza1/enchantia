@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { getSingleProductApi } from '../../apis/Api';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../store/cartSlice';
 
 const ProductDetails = () => {
 
@@ -15,7 +17,33 @@ const ProductDetails = () => {
     }).catch((err) => {
       console.log(err);
     })
-  }, [id])
+  }, [id]);
+
+  // add and remove quantity
+  //const [cartValue, setCartValue] = useState(1);
+
+  // const handleAddQuantity = () => {
+  //     setCartValue(cartValue + 1);
+  // }
+
+  // const handleRemoveQuantity = () => {
+  //     if (cartValue > 1) {
+  //         setCartValue(cartValue - 1);
+  //     }
+  
+  // -------------------------------------
+  const Dispatch = useDispatch();
+  const handleAddToCart = () => {
+      const cartItem = {
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          category: product.category,
+          //quantity: cartValue
+      }
+      Dispatch(addToCart(cartItem));
+  }
   return (
     //  <div className='container mt-5'>
     //    <div className="d-flex">
@@ -51,14 +79,14 @@ const ProductDetails = () => {
 
                 <div class="carousel-inner mb-5">
                   <div class="carousel-item active product-item">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(88).webp" class="d-block w-100" alt="..." />
+                    <img src={product.image} class="d-block w-100" alt="..." />
                   </div>
                   <div class="carousel-item product-item">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(121).webp" class="d-block w-100"
+                    <img src={product.image} class="d-block w-100"
                       alt="..." />
                   </div>
                   <div class="carousel-item product-item">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(31).webp" class="d-block w-100" alt="..." />
+                    <img src={product.image} class="d-block w-100" alt="..." />
                   </div>
                 </div>
                 <button class="carousel-control-prev left-arrow" type="button" data-mdb-target="#carouselExampleIndicators"
@@ -75,9 +103,9 @@ const ProductDetails = () => {
             </div>
             <div className='col-md-6 col-sm-12 product-description'>
               <div>
-                <p className='section-subheading'>Earing </p>
-                <p className='primary-heading-low'>Florere stud earrings</p>
-                <p className='best-seller-heading'>Flower, Pink, Gold-tone plated</p>
+                <p className='section-subheading'>{product.category} </p>
+                <p className='primary-heading-low'>{product.name}</p>
+                <p className='best-seller-heading'>{product.description}</p>
               </div>
               <div className='d-flex flex-row'>
                   <div>
@@ -96,19 +124,19 @@ const ProductDetails = () => {
               </div>
              
               <div>
-                <p className='para mt-4'>"Inspired by the wondrous beauty of nature, these gorgeous earrings are blooming with fine crystals. Set on gold-tone plating, the pink design features five petals artfully arranged around a central stone with a deeper hue. A captivating design for floral days. "</p>
-                <p className='best-seller-heading'>$102.00</p>
+                {/* <p className='para mt-4'>{product.detaildescription}</p> */}
+                <p className='best-seller-heading'>{product.price}</p>
               </div>
               <div class="d-flex flex-row mb-3">
-                <div className='pe-3'><button type="button" class="btn btn-about mt-3 " data-mdb-ripple-color="dark">Add to Cart</button></div>
+                <div className='pe-3'><button type="button" class="btn btn-about mt-3 " data-mdb-ripple-color="dark" onClick={handleAddToCart}>Add to Cart</button></div>
                 <div><button type="button" class="btn btn-about mt-3 " data-mdb-ripple-color="dark">Wishlist</button></div>
               </div>
               <div class="tp-product-details-social mt-4">
                   <span className='para'>Share: </span>
-                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                  <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                  <a href="#"><i class="fa-brands fa-vimeo-v"></i></a>
+                  <Link href="#"><i class="fa-brands fa-facebook-f"></i></Link>
+                  <Link href="#"><i class="fa-brands fa-twitter"></i></Link>
+                  <Link href="#"><i class="fa-brands fa-linkedin-in"></i></Link>
+                  <Link href="#"><i class="fa-brands fa-vimeo-v"></i></Link>
                   <ul className='product para mt-3'>
                     <li>30 days easy returns</li>
                     <li>Order yours before 2.30pm for same day dispatch</li>
@@ -220,6 +248,6 @@ const ProductDetails = () => {
       </section>
     </div>
   )
-}
+  }
 
 export default ProductDetails
