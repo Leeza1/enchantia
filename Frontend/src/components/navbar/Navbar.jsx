@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -13,6 +14,22 @@ const Navbar = () => {
     localStorage.clear()
     navigate("/login")
   }
+
+  // get cart value form reducer
+  // const { cart } = useSelector((state) => ({
+  //   cart: state.cart.cart
+  
+  // }))
+  
+  // const { cart } = useSelector((state) => {
+  //   console.log(state); // Check the structure of the state object
+  //   console.log(state.cart); // Check if the `cart` property exists
+  //   return {
+  //     cart: state.cart.cart
+  //   };
+  // });
+  
+
 
   return (
     <>
@@ -125,7 +142,7 @@ const Navbar = () => {
                 <Link class="nav-link" to={'/'}>Blog</Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link" to={'/'}>Contact</Link>
+                <Link class="nav-link" to={'/contact'}>Contact</Link>
 
               </li>
             </ul>
@@ -136,9 +153,10 @@ const Navbar = () => {
 
           <div class="d-flex align-items-center">
 
-            <Link class="link-secondary me-3" href="#">
-              <i class="fas fa-shopping-cart"></i>
-            </Link>
+          {/* <Link to={'/cart'} className="m-4">
+              <i className="fa fa-shopping-cart fa-lg"></i>
+              <span className="badge rounded-pill badge-notification bg-danger">{cart.length}</span>
+            </Link> */}
 
 
             <div class="dropdown">

@@ -17,9 +17,21 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    image: {
+    // detaildescription: {
+    //     type: String,
+    //     required: true,
+    // },
+    imagea: {
         type: String,
         required: true,
     },
+    // imageb: {
+    //     type: String,
+    //     required: true,
+    // },
+    // imagec: {
+    //     type: String,
+    //     required: true,
+    // },
 })
 module.exports = mongoose.model("Product", productSchema);

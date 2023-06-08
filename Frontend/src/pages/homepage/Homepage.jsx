@@ -315,7 +315,7 @@ const Homepage = () => {
                     <div className="best-seller-product">
                       <div className="text-center py-4">
                         <div className="product-image">
-                          <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5656635_png/florere-stud-earrings--flower--pink--gold-tone-plated-swarovski-5656635.png" className="img-fluid" alt="" />
+                          <img src={product.imagea} className="img-fluid" alt="" />
                         </div>
                         <div className="product-description">
                           <p className="section-subheading mb-1">{product.name}</p>
