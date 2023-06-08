@@ -7,18 +7,64 @@ const cloudinary = require("cloudinary");
 router.post("/add", authGuard, async (req, res) => {
     console.log(req.body);
     const { productName, productDescription, productCategory, productPrice} = req.body;
-    const { productImage } = req.files;
+    const { productImagea} = req.files;
     if(!productName || !productDescription || !productCategory || !productPrice){
         return res.status(422).json({error: "Please enter all fields"});
     }
+    // const uploadedImages = await Promise.all(
+    //     productImages.map(async (productImagea, productImageb, productImagec) =>{
+    //         const uploadedImagea = await cloudinary.v2.uploader.upload(
+    //             productImagea.path,
+    //             {
+    //             folder: "enchantia",
+    //             crop: "scale"
+    //             },
+    //         );
+    //         const uploadedImageb = await cloudinary.v2.uploader.upload(
+    //             productImageb.path,
+    //             {
+    //                 folder: "enchantia",
+    //                 crop: "scale"
+    //             },
+                
+    //         );
+            
+    //         const uploadedImagec = await cloudinary.v2.uploader.upload(
+    //             productImagec.path,
+    //             {
+    //                 folder: "enchantia",
+    //                 crop: "scale"
+    //             },
+                
+    //         );
+    //         return uploadedImagec.secure_url;
+    //     })
+    // );
 
-    const uploadedImage = await cloudinary.v2.uploader.upload(
-        productImage.path,
+    const uploadedImagea = await cloudinary.v2.uploader.upload(
+        productImagea.path,
         {
             folder: "enchantia",
             crop: "scale"
         },
+        
     );
+    // const uploadedImageb = await cloudinary.v2.uploader.upload(
+    //     productImageb.path,
+    //     {
+    //         folder: "enchantia",
+    //         crop: "scale"
+    //     },
+        
+    // );
+    // const uploadedImagec = await cloudinary.v2.uploader.upload(
+    //     productImagec.path,
+    //     {
+    //         folder: "enchantia",
+    //         crop: "scale"
+    //     },
+        
+    // );
 
     try{
         const newProduct = new productModel({
@@ -26,7 +72,9 @@ router.post("/add", authGuard, async (req, res) => {
             description: productDescription,
             category: productCategory,
             price: productPrice,
-            image: uploadedImage.secure_url
+            imagea: uploadedImagea.secure_url
+           // imageb: uploadedImageb.secure_url,
+            //imagec: uploadedImagec.secure_url
         });
         await newProduct.save();
         res.status(201).json({ message: "Product added successfully" });
@@ -62,21 +110,38 @@ router.get("/get_product/:id", async (req, res) => {
 router.put("/update_product/:id", async (req, res) => {
     console.log(req.body);
     const { productName, productDescription, productCategory, productPrice } = req.body;
-    const { productImage } = req.files;
+    const { productImagea, productImageb, productImagec } = req.files;
     if (!productName || !productDescription || !productCategory || !productPrice) {
         return res.status(422).json({ error: "Please add all the fields" });
     }
 
     try {
 
-        if(productImage){
-            const uploadedImage = await cloudinary.v2.uploader.upload(
-                productImage.path,
+        if(productImagea ){
+            const uploadedImagea = await cloudinary.v2.uploader.upload(
+                productImagea.path,
                 {
                     folder: "enchantia",
                     crop: "scale"
                 },
+                
             );
+            // const uploadedImageb = await cloudinary.v2.uploader.upload(
+            //     productImageb.path,
+            //     {
+            //         folder: "enchantia",
+            //         crop: "scale"
+            //     },
+                
+            // );
+            // const uploadedImagec = await cloudinary.v2.uploader.upload(
+            //     productImagec.path,
+            //     {
+            //         folder: "enchantia",
+            //         crop: "scale"
+            //     },
+                
+            // );
             
             //  update product
             const product = await productModel.findById(req.params.id);
@@ -84,7 +149,9 @@ router.put("/update_product/:id", async (req, res) => {
                 product.description= productDescription,
                 product.category= productCategory,
                 product.price= productPrice,
-                product.image= uploadedImage.secure_url
+                product.imagea= uploadedImagea.secure_url,
+                // product.imageb= uploadedImageb.secure_url,
+                // product.imagec= uploadedImagec.secure_url
     
             await product.save();
     

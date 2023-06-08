@@ -11,11 +11,15 @@ const AdminDashboard = () => {
     //for response data
     const [products, setProducts] = useState ([])
 
-    const [productImage, setProductImage] = useState(null)
+    const [productImagea, setProductImagea] = useState(null)
+    //const [productImageb, setProductImageb] = useState(null)
+    //const [productImagec, setProductImagec] = useState(null)
 
-    const [previewImage, setPreviewImage] = useState(null)
+    const [previewImagea, setPreviewImagea] = useState(null)
+    //const [previewImageb, setPreviewImageb] = useState(null)
+    //const [previewImagec, setPreviewImagec] = useState(null)
 
-    const handleImageUpload = (event) => {
+    const handleImageaUpload = (event) => {
         // const file = e.target.files[0]
         // const reader = new FileReader();
 
@@ -25,20 +29,43 @@ const AdminDashboard = () => {
         // if(file){
         //     reader.readAsDataURL(file)
         // }
-        setProductImage(event.target.files[0])
-        const reader = new FileReader()
-        reader.onload = () => {
-            setPreviewImage(reader.result)
+        setProductImagea(event.target.files[0])
+        const readera = new FileReader()
+        readera.onload = () => {
+            setPreviewImagea(readera.result)
         }
-        reader.readAsDataURL(event.target.files[0])
+        readera.readAsDataURL(event.target.files[0])
     }
+    // const handleImagebUpload = (event) => {
+    //     setProductImageb(event.target.files[0])
+    //     const readerb = new FileReader()
+    //     readerb.onload = () => {
+            
+    //         setPreviewImageb(readerb.result)
+            
+    //     }
+    //     readerb.readAsDataURL(event.target.files[0])
+    // }
+    // const handleImagecUpload = (event) => {
+
+    //     setProductImagec(event.target.files[0])
+    //     const readerc = new FileReader()
+    //     readerc.onload = () => {
+            
+    //         setPreviewImagec(readerc.result)
+    //     }
+    //     readerc.readAsDataURL(event.target.files[0])
+    // }
     const handleSummit = () => {
         const formData = new FormData()
         formData.append('productName', productName)
         formData.append('productPrice', productPrice)
         formData.append('productCategory', productCategory)
         formData.append('productDescription', productDescription)
-        formData.append('productImage', productImage)
+        formData.append('productImagea', productImagea)
+        // formData.append('productImageb', productImageb)
+        // formData.append('productImagec', productImagec)
+
 
         // calling the api
         addProductApi(formData).then(res => {
@@ -108,12 +135,24 @@ const AdminDashboard = () => {
                                             <textarea
                                                 onChange={(e) => setProductDescription(e.target.value)} className='form-control' name="" id="" rows={4}></textarea>
 
-                                            <label className='mt-2' htmlFor="">Product Image</label>
-                                            <input onChange={handleImageUpload} type="file" class="form-control" placeholder='Enter product image' />
+                                            <label className='mt-2' htmlFor="">Product Image1</label>
+                                            <input onChange={handleImageaUpload} type="file" class="form-control" placeholder='Enter product image 1' />
                                             {
                                                 // productImage && <img src={productImage} alt="" className='object-cover mb-3' height={'100px'}/>
-                                                previewImage && <img src={previewImage} alt="" className='object-cover mb-3' height={'100px'} />
+                                                previewImagea && <img src={previewImagea} alt="" className='object-cover mb-3' height={'100px'} />
                                             }
+                                            {/* <label className='mt-2' htmlFor="">Product Image2</label>
+                                            <input onChange={handleImagebUpload} type="file" class="form-control" placeholder='Enter product image 2' />
+                                            {
+                                                // productImage && <img src={productImage} alt="" className='object-cover mb-3' height={'100px'}/>
+                                                previewImageb && <img src={previewImageb} alt="" className='object-cover mb-3' height={'100px'} />
+                                            }
+                                            <label className='mt-2' htmlFor="">Product Image3</label>
+                                            <input onChange={handleImagecUpload} type="file" class="form-control" placeholder='Enter product image 3' />
+                                            {
+                                                // productImage && <img src={productImage} alt="" className='object-cover mb-3' height={'100px'}/>
+                                                previewImagec && <img src={previewImagec} alt="" className='object-cover mb-3' height={'100px'} />
+                                            } */}
 
                                         </div>
                                     </form>
@@ -143,7 +182,7 @@ const AdminDashboard = () => {
                                 return (
                                     <tr>
                                         <td>
-                                            <img src={product.image} alt="" height={40} />
+                                            <img src={product.imagea} alt="" height={40} />
                                         </td>
                                         <td>{product.name}</td>
                                         <td>{product.price}</td>
