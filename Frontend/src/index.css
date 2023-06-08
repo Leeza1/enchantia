@@ -280,7 +280,7 @@ background: #F6F6F6;
 }
 /* about page */
 .banner{
-  background-image: url(https://asset.swarovski.com/images/c_crop,g_xy_center,w_5846,h_1979,x_4500,y_4806/dpr_auto,f_auto,q_auto,c_lfill,w_1449,h_600/swa-cms/SS22_BRAND_VISUAL-PINK-1_SL_GL_72DPI_RGB/.jpg);
+  background-image: url(https://asset.swarovski.com/images/c_crop,g_xy_center,w_11177,h_3784,x_5589,y_3879/dpr_auto,f_auto,q_auto,c_lfill,w_1449,h_600/swa-cms/SS22_BRAND_VISUAL-BODYP-EAR-2_OF_GL_300DPI_RGB/5641406-5614090-5614932-5614296.jpg);
   height: 60vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -291,19 +291,33 @@ background: #F6F6F6;
 }
 .overlay {
   position: absolute;
-   top: 0;
-   left: 0;
- width: 100%;
- height: 60vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60vh;
   background:black;
   opacity: 0.5;
-   z-index: 1;
-   display: flex;
-  }
+  z-index: 1;
+  display: flex;
+}
   .uk-main {
   max-width: 600px;
   z-index: 5;
   margin: auto;
   text-align: center;
-  }
-  
+}
+.fixed-section{
+  background: linear-gradient(90deg, rgba(0,0,0,0.5298494397759104) 0%, rgba(0,0,0,0.006039915966386533) 0%, rgba(0,0,0,0.5354516806722689) 0%) ,url(https://websitedemos.net/jewellery-store-04/wp-content/uploads/sites/935/2021/08/bg-08.jpg);
+ 
+  background-repeat: no-repeat;
+  padding: 64px 0;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top;
+}
+.fixed-font{
+  color: white;
+}
+ 
+
+
