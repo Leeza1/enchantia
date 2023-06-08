@@ -113,13 +113,13 @@ const Navbar = () => {
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center  ms-auto">
               <li class="nav-item">
-                <Link class="nav-link" to={'/'}>Home</Link>
+                <Link class="nav-link" to={'/ '}>Home</Link>
               </li>
               <li class="nav-item">
                 <Link class="nav-link" to={'/'}>Shop</Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link" to={'/'}>About</Link>
+                <Link class="nav-link" to={'/About'}>About</Link>
               </li>
               <li class="nav-item">
                 <Link class="nav-link" to={'/'}>Blog</Link>

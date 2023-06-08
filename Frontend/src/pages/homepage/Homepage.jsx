@@ -145,7 +145,7 @@ const Homepage = () => {
     // </div>
     <div className="container-fluid main-body">
 
-      <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+      <div id="carouselBasicExample" class="carousel slide carousel-fade " data-mdb-ride="carousel">
 
         <div class="carousel-indicators">
           <button
