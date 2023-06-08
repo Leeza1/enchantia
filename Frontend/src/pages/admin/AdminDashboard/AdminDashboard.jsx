@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
-import { addProductApi , deleteProductApi, getAllProductsApi } from '../../../apis/Api'
+import { addProductApi, deleteProductApi, getAllProductsApi } from '../../../apis/Api'
 import { Link } from 'react-router-dom'
 
 const AdminDashboard = () => {
@@ -8,8 +8,9 @@ const AdminDashboard = () => {
     const [productPrice, setProductPrice] = useState('')
     const [productCategory, setProductCategory] = useState('')
     const [productDescription, setProductDescription] = useState('')
+    const [productDetailDescription, setProductDetailDescription] = useState('')
     //for response data
-    const [products, setProducts] = useState ([])
+    const [products, setProducts] = useState([])
 
     const [productImagea, setProductImagea] = useState(null)
     //const [productImageb, setProductImageb] = useState(null)
@@ -40,9 +41,9 @@ const AdminDashboard = () => {
     //     setProductImageb(event.target.files[0])
     //     const readerb = new FileReader()
     //     readerb.onload = () => {
-            
+
     //         setPreviewImageb(readerb.result)
-            
+
     //     }
     //     readerb.readAsDataURL(event.target.files[0])
     // }
@@ -51,7 +52,7 @@ const AdminDashboard = () => {
     //     setProductImagec(event.target.files[0])
     //     const readerc = new FileReader()
     //     readerc.onload = () => {
-            
+
     //         setPreviewImagec(readerc.result)
     //     }
     //     readerc.readAsDataURL(event.target.files[0])
@@ -62,6 +63,7 @@ const AdminDashboard = () => {
         formData.append('productPrice', productPrice)
         formData.append('productCategory', productCategory)
         formData.append('productDescription', productDescription)
+        formData.append('productDetailDescription', productDetailDescription)
         formData.append('productImagea', productImagea)
         // formData.append('productImageb', productImageb)
         // formData.append('productImagec', productImagec)
@@ -80,18 +82,18 @@ const AdminDashboard = () => {
         getAllProductsApi().then(res => {
             setProducts(res.data);
             console.log(res.data);
-        }).catch(err =>{
+        }).catch(err => {
             console.log(err)
         })
-      }, [])
+    }, [])
 
-    const handleDelete =(id) =>{
+    const handleDelete = (id) => {
 
         const confirmDelete = window.confirm("Areyou sure you want to delete?")
-        if(confirmDelete){
-            deleteProductApi(id).then(res =>{
+        if (confirmDelete) {
+            deleteProductApi(id).then(res => {
                 toast.success("Product delete Sucessfully")
-            }).catch(err =>{
+            }).catch(err => {
                 toast.error("Product delete failed")
             })
         }
@@ -134,6 +136,10 @@ const AdminDashboard = () => {
                                             <label className='mt-2' htmlFor="">Product Description</label>
                                             <textarea
                                                 onChange={(e) => setProductDescription(e.target.value)} className='form-control' name="" id="" rows={4}></textarea>
+
+                                            <label className='mt-2' htmlFor="">Products Detail Description</label>
+                                            <textarea
+                                                onChange={(e) => setProductDetailDescription(e.target.value)} className='form-control' name="" id="" rows={4}></textarea>
 
                                             <label className='mt-2' htmlFor="">Product Image1</label>
                                             <input onChange={handleImageaUpload} type="file" class="form-control" placeholder='Enter product image 1' />
@@ -192,7 +198,7 @@ const AdminDashboard = () => {
 
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <Link to={`/admin/product/edit/${product._id}`} type="button" class="btn btn-success">Edit</Link>
-                                                <button type="button" class="btn btn-danger" onClick={()=> handleDelete(product._id)}>Delete</button>
+                                                <button type="button" class="btn btn-danger" onClick={() => handleDelete(product._id)}>Delete</button>
                                             </div>
                                         </td>
                                     </tr>

@@ -17,10 +17,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    // detaildescription: {
-    //     type: String,
-    //     required: true,
-    // },
+    detaildescription: {
+        type: String,
+        required: true,
+    },
     imagea: {
         type: String,
         required: true,

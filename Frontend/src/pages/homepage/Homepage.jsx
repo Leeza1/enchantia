@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 //import { testApi } from "../../apis/Api";
-import { testApi, getAllProductsApi } from '../../apis/Api'
+import { getAllProductsApi } from '../../apis/Api'
 import { Link } from "react-router-dom";
 import necklace from "../../assets/images/necklace.png"
 import jewelry from "../../assets/images/jewelry.png"

@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const Cart = () => {
     const { cart } = useSelector((state) => ({
-        cart: state.cart.cart
+        cart: state.cart?.cart
     }))
 
     const [totalAmount , setTotalAmount] = useState(0);
@@ -14,7 +14,7 @@ const Cart = () => {
     // calculate total amount
     const calculateTotalAmount = () => {
         let totalPrice = 0;
-        cart.forEach((item) => {
+        cart && cart.forEach((item) => {
             const itemTotal = item.price * item.quantity;
             totalPrice += itemTotal;
         })
@@ -78,7 +78,7 @@ const Cart = () => {
                                                 <hr className="my-4" />
 
                                                 {
-                                                    cart.map((item, index) => (
+                                                    cart && cart.map((item, index) => (
                                                         <div className="row mb-4 d-flex justify-content-between align-items-center">
                                                             <div className="col-md-2 col-lg-2 col-xl-2">
                                                                 <img
@@ -120,7 +120,7 @@ const Cart = () => {
                                         <div className="col-lg-4 bg-grey">
                                             <div className="p-5">
                                                 <h3 className="fw-bold mb-5 mt-2 pt-1">Summary</h3>
-                                                <h6 className="text-muted">Total quantity: {cart.length}</h6>
+                                                <h6 className="text-muted">Total quantity: {cart && cart.length}</h6>
                                                 <h6 className="text-muted">Total price:</h6>
                                                 <h3 className="fw-bold">NPR. {totalAmount.toFixed(2)}</h3>
                                                 <hr />

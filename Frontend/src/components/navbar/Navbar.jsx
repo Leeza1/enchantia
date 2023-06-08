@@ -15,11 +15,11 @@ const Navbar = () => {
     navigate("/login")
   }
 
-  // get cart value form reducer
-  // const { cart } = useSelector((state) => ({
-  //   cart: state.cart.cart
+  //get cart value form reducer
+  const { cart } = useSelector((state) => ({
+    cart: state.cart?.cart
   
-  // }))
+  }))
   
   // const { cart } = useSelector((state) => {
   //   console.log(state); // Check the structure of the state object
@@ -142,7 +142,7 @@ const Navbar = () => {
                 <Link class="nav-link" to={'/'}>Blog</Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link" to={'/contact'}>Contact</Link>
+                <Link class="nav-link" to={'/Contact'}>Contact</Link>
 
               </li>
             </ul>
@@ -153,10 +153,10 @@ const Navbar = () => {
 
           <div class="d-flex align-items-center">
 
-          {/* <Link to={'/cart'} className="m-4">
+          <Link to={'/cart'} className="m-2">
               <i className="fa fa-shopping-cart fa-lg"></i>
-              <span className="badge rounded-pill badge-notification bg-danger">{cart.length}</span>
-            </Link> */}
+              <span className="badge rounded-pill badge-notification bg-danger">{cart && cart.length}</span>
+            </Link>
 
 
             <div class="dropdown">

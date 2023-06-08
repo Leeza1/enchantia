@@ -6,49 +6,22 @@ const cloudinary = require("cloudinary");
 
 router.post("/add", authGuard, async (req, res) => {
     console.log(req.body);
-    const { productName, productDescription, productCategory, productPrice} = req.body;
+    const { productName, productDescription, productCategory, productPrice, productDetailDescription} = req.body;
     const { productImagea} = req.files;
-    if(!productName || !productDescription || !productCategory || !productPrice){
+    if(!productName || !productDescription || !productCategory || !productPrice || !productDetailDescription){
         return res.status(422).json({error: "Please enter all fields"});
     }
-    // const uploadedImages = await Promise.all(
-    //     productImages.map(async (productImagea, productImageb, productImagec) =>{
-    //         const uploadedImagea = await cloudinary.v2.uploader.upload(
-    //             productImagea.path,
-    //             {
-    //             folder: "enchantia",
-    //             crop: "scale"
-    //             },
-    //         );
-    //         const uploadedImageb = await cloudinary.v2.uploader.upload(
-    //             productImageb.path,
-    //             {
-    //                 folder: "enchantia",
-    //                 crop: "scale"
-    //             },
-                
-    //         );
-            
-    //         const uploadedImagec = await cloudinary.v2.uploader.upload(
-    //             productImagec.path,
-    //             {
-    //                 folder: "enchantia",
-    //                 crop: "scale"
-    //             },
-                
-    //         );
-    //         return uploadedImagec.secure_url;
-    //     })
+
+    // const uploadedImagea = await cloudinary.v2.uploader.upload(
+    //     productImagea.path,
+    //     {
+    //         folder: "enchantia",
+    //         crop: "scale"
+    //     },
+        
     // );
 
-    const uploadedImagea = await cloudinary.v2.uploader.upload(
-        productImagea.path,
-        {
-            folder: "enchantia",
-            crop: "scale"
-        },
-        
-    );
+
     // const uploadedImageb = await cloudinary.v2.uploader.upload(
     //     productImageb.path,
     //     {
@@ -67,11 +40,30 @@ router.post("/add", authGuard, async (req, res) => {
     // );
 
     try{
+        // let productImages = [...req.body.images];
+        // let imagesBuffer = [];
+        // for (let i=0; i< images.length; i++){
+        //     const uploadedImagea = await cloudinary.v2.uploader.upload(
+        //         productImage[i],
+        //         {
+        //             folder: "enchantia",
+        //             crop: "scale"
+        //         },
+                
+        //     );
+        //     imagesBuffer.push({
+        //         public_id: uploadedImagea.public_id,
+        //         url: uploadedImagea.secure_url
+        //     })
+        // }
+        // req.body.productImages = imagesBuffer
+
         const newProduct = new productModel({
             name: productName,
             description: productDescription,
             category: productCategory,
             price: productPrice,
+            detaildescription: productDetailDescription,
             imagea: uploadedImagea.secure_url
            // imageb: uploadedImageb.secure_url,
             //imagec: uploadedImagec.secure_url
@@ -109,9 +101,9 @@ router.get("/get_product/:id", async (req, res) => {
 // updating product
 router.put("/update_product/:id", async (req, res) => {
     console.log(req.body);
-    const { productName, productDescription, productCategory, productPrice } = req.body;
+    const { productName, productDescription, productCategory, productPrice, productDetailDescription } = req.body;
     const { productImagea, productImageb, productImagec } = req.files;
-    if (!productName || !productDescription || !productCategory || !productPrice) {
+    if (!productName || !productDescription || !productCategory || !productPrice || !productDetailDescription) {
         return res.status(422).json({ error: "Please add all the fields" });
     }
 
@@ -149,6 +141,7 @@ router.put("/update_product/:id", async (req, res) => {
                 product.description= productDescription,
                 product.category= productCategory,
                 product.price= productPrice,
+                product.detaildescription= productDetailDescription,
                 product.imagea= uploadedImagea.secure_url,
                 // product.imageb= uploadedImageb.secure_url,
                 // product.imagec= uploadedImagec.secure_url
@@ -164,6 +157,7 @@ router.put("/update_product/:id", async (req, res) => {
             product.description = productDescription;
             product.category = productCategory;
             product.price = productPrice; 
+            product.detaildescription=productDetailDescription;
     
             await product.save();
     
