@@ -38,7 +38,7 @@ const ProductDetails = () => {
           id: product.id,
           name: product.name,
           price: product.price,
-          image: product.image,
+          imagea: product.imagea,
           category: product.category,
           //quantity: cartValue
       }
@@ -79,14 +79,14 @@ const ProductDetails = () => {
 
                 <div class="carousel-inner mb-5">
                   <div class="carousel-item active product-item">
-                    <img src={product.image} class="d-block w-100" alt="..." />
+                    <img src={product.imagea} class="d-block w-100" alt="..." />
                   </div>
                   <div class="carousel-item product-item">
-                    <img src={product.image} class="d-block w-100"
+                    <img src={product.imagea} class="d-block w-100"
                       alt="..." />
                   </div>
                   <div class="carousel-item product-item">
-                    <img src={product.image} class="d-block w-100" alt="..." />
+                    <img src={product.imagea} class="d-block w-100" alt="..." />
                   </div>
                 </div>
                 <button class="carousel-control-prev left-arrow" type="button" data-mdb-target="#carouselExampleIndicators"
