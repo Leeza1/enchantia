@@ -5,9 +5,9 @@ const router = require("express").Router();
 
 router.post("/add", authGuard, async(req,res) => {
     console.log(req.body);
-    const { ringName, ringDescription, ringCategory, ringPrice } = req.body;
-    const { ringImagea, ringImageb, ringImagec, ringImaged } = req.files;
-    if(!ringName || !ringDescription || !ringCategory || !ringPrice){
+    const { ringName, ringDescription, ringCategory, ringPrice, ringDetailDescription } = req.body;
+    const { ringImagea } = req.files;
+    if(!ringName || !ringDescription || !ringCategory || !ringPrice || !ringDetailDescription){
         return res.status(422).json({error: "Please enter all fields"});
     }
 
@@ -17,21 +17,21 @@ const uploadedImage = await cloudinary.v2.uploader.upload(
         folder: "enchantia",
         crop: "scale"
     },
-    ringImageb.path,
-    {
-        folder: "enchantia",
-        crop: "scale"
-    },
-    ringImagec.path,
-    {
-        folder: "enchantia",
-        crop: "scale"
-    },
-    ringImaged.path,
-    {
-        folder: "enchantia",
-        crop: "scale"
-    },
+    // ringImageb.path,
+    // {
+    //     folder: "enchantia",
+    //     crop: "scale"
+    // },
+    // ringImagec.path,
+    // {
+    //     folder: "enchantia",
+    //     crop: "scale"
+    // },
+    // ringImaged.path,
+    // {
+    //     folder: "enchantia",
+    //     crop: "scale"
+    // },
 
 );
     try{
@@ -40,10 +40,11 @@ const uploadedImage = await cloudinary.v2.uploader.upload(
             ringdescription: ringDescription,
             ringcategory: ringCategory,
             ringprice: ringPrice,
+            ringdetaildescription: ringDetailDescription,
             ringimagea: uploadedImage.secure_url,
-            ringimageb: uploadedImage.secure_url,
-            ringimagec: uploadedImage.secure_url,
-            ringimaged: uploadedImage.secure_url
+            // ringimageb: uploadedImage.secure_url,
+            // ringimagec: uploadedImage.secure_url,
+            // ringimaged: uploadedImage.secure_url
         });
         await newring.save();
         res.status(201).json({ message: "Product Added Successfully"});  
@@ -65,10 +66,10 @@ router.get("/get_rings", async (req, res) => {
 });
 
 //get single product
-router.get("/get_ring", async (req, res) => {
+router.get("/get_ring/:id", async (req, res) => {
     try{
         const ring = await ringModel.findById(req.params.id);
-        res.json(product);
+        res.json(ring);
     }catch(error){
         console.log(error);
         res.status(500).json({error: "Internal server Error"});
@@ -78,9 +79,9 @@ router.get("/get_ring", async (req, res) => {
 //updating ring
 router.put("/update_ring/:id", async(req,res)=>{
     console.log(req.body);
-    const { ringName, ringDescription, ringCategory, ringPrice }=req.body;
-    const { ringImagea, ringImageb, ringImagec, ringImaged} = req.files;
-    if(!ringName || !ringDescription || !ringCategory || !ringPrice){
+    const { ringName, ringDescription, ringCategory, ringPrice, ringDetailDescription }=req.body;
+    const { ringImagea} = req.files;
+    if(!ringName || !ringDescription || !ringCategory || !ringPrice || !ringDetailDescription){
         return res.status(422).json({error: "Please enter all fields"});
     }
 
@@ -92,21 +93,21 @@ router.put("/update_ring/:id", async(req,res)=>{
                     folder: "enchantia",
                     crop: "scale"
                 },
-                ringImageb.path,
-                {
-                    folder: "enchantia",
-                    crop: "scale"
-                },
-                ringImagec.path,
-                {
-                    folder: "enchantia",
-                    crop: "scale"
-                },
-                ringImaged.path,
-                {
-                    folder: "enchantia",
-                    crop: "scale"
-                }
+                // ringImageb.path,
+                // {
+                //     folder: "enchantia",
+                //     crop: "scale"
+                // },
+                // ringImagec.path,
+                // {
+                //     folder: "enchantia",
+                //     crop: "scale"
+                // },
+                // ringImaged.path,
+                // {
+                //     folder: "enchantia",
+                //     crop: "scale"
+                // }
             );
 
             //update ring
@@ -115,10 +116,11 @@ router.put("/update_ring/:id", async(req,res)=>{
                 ring.ringdescription = ringDescription,
                 ring.ringcategory = ringCategory,
                 ring.ringprice = ringPrice,
+                ring.ringdetaildescription = ringDetailDescription,
                 ring.ringimagea = uploadedImage.secure_url,
-                ring.ringimageb = uploadedImage.secure_url,
-                ring.ringimagec = uploadedImage.secure_url,
-                ring.ringimaged = uploadedImage.secure_url
+                // ring.ringimageb = uploadedImage.secure_url,
+                // ring.ringimagec = uploadedImage.secure_url,
+                // ring.ringimaged = uploadedImage.secure_url
             
             await ring.save();
 
@@ -131,6 +133,7 @@ router.put("/update_ring/:id", async(req,res)=>{
                 ring.ringdescription = ringDescription,
                 ring.ringcategory = ringCategory,
                 ring.ringprice = ringPrice,
+                ring.ringdetaildescription = ringDetailDescription,
 
                 await ring.save();
                 

@@ -1,43 +1,39 @@
 const mongoose = require('mongoose');
 
-const necklaceSchema = new mongoose.Schema({
-    necname: {
+const braceletSchema = new mongoose.Schema({
+    bracname: {
         type: String,
         required: true,
     },
-    necdescription: {
+    bracdescription: {
         type: String,
         required: true,
     },
-    neccategory: {
+    braccategory: {
         type: String,
         required: true,
     },
-    necprice: {
+    bracprice: {
         type: String,
         required: true,
     },
-    necdetaildescription: {
-        type: String, 
-        required: true,
-    },
-    necimagea: {
+    bracimagea: {
         type: String,
         required: true,
     },
-    // necimageb: {
+    // bracimageb: {
     //     type: String,
     //     required: true,
     // },
-    // necimagec: {
+    // bracimagec: {
     //     type: String,
     //     required: true,
     // },
-    // necimaged: {
+    // bracimaged: {
     //     type: String,
     //     required: true,
     // },
 });
 
-const Necklace = mongoose.model('Necklace', necklaceSchema);
-module.exports = Necklace;
+const Bracelet = mongoose.model('Bracelet', braceletSchema);
+module.exports = Bracelet;

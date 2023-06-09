@@ -52,7 +52,7 @@ export const getAllOrdersApi = () => Api.get('/api/orders/getAllOrders', config)
 export const addNecklaceApi = (data) => Api.post('/api/necklace/add',data, config);
 
 //get all necklace
-export const getAllNecklaceApi = (data) => Api.get('/api/necklace/get_necklaces');
+export const getAllNecklacesApi = (data) => Api.get('/api/necklace/get_necklaces');
 
 //get single necklace
 export const getSingleNecklaceApi = (id) => Api.get(`/api/necklace/get_necklace/${id}`,config);
@@ -82,7 +82,7 @@ export const deleteEaringApi = (id) => Api.delete(`/api/earing/delete_earing/${i
 export const  addBraceletApi  = (data) => Api.post('/api/bracelet/add', data, config);
 
 //get all bracelet 
-export const getAllBraceletApi = (data) => Api.get('/api/bracelet/get_bracelets');
+export const getAllBraceletsApi = (data) => Api.get('/api/bracelet/get_bracelets');
 
 //get single bracelet
 export const getSingleBraceletApi = (id) => Api.get(`/api/bracelet/get_bracelet/${id}`,config);
@@ -97,7 +97,7 @@ export const deleteBraceletApi = (id) => Api.delete(`/api/bracelet/delete_bracel
 export const  addRingApi  = (data) => Api.post('/api/ring/add', data, config);
 
 //get all ring
-export const getAllRingApi = (data) => Api.get('/api/ring/get_rings');
+export const getAllRingsApi = (data) => Api.get('/api/ring/get_rings');
 
 //get single ring
 export const getSingleRingApi = (id) => Api.get(`/api/ring/get_ring/${id}`,config);

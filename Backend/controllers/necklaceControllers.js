@@ -5,9 +5,9 @@ const router = require("express").Router();
 
 router.post("/add", authGuard, async(req,res) => {
     console.log(req.body);
-    const { necklaceName, necklaceDescription, necklaceCategory, necklacePrice } = req.body;
-    const { necklaceImagea, necklaceImageb, necklaceImagec, necklaceImaged } = req.files;
-    if(!necklaceName || !necklaceDescription || !necklaceCategory || !necklacePrice){
+    const { necklaceName, necklaceDescription, necklaceCategory, necklacePrice, necklaceDetailDescription } = req.body;
+    const { necklaceImagea } = req.files;
+    if(!necklaceName || !necklaceDescription || !necklaceCategory || !necklacePrice || !necklaceDetailDescription){
         return res.status(422).json({error: "Please enter all fields"});
     }
 
@@ -17,21 +17,21 @@ const uploadedImage = await cloudinary.v2.uploader.upload(
         folder: "enchantia",
         crop: "scale"
     },
-    necklaceImageb.path,
-    {
-        folder: "enchantia",
-        crop: "scale"
-    },
-    necklaceImagec.path,
-    {
-        folder: "enchantia",
-        crop: "scale"
-    },
-    necklaceImaged.path,
-    {
-        folder: "enchantia",
-        crop: "scale"
-    },
+    // necklaceImageb.path,
+    // {
+    //     folder: "enchantia",
+    //     crop: "scale"
+    // },
+    // necklaceImagec.path,
+    // {
+    //     folder: "enchantia",
+    //     crop: "scale"
+    // },
+    // necklaceImaged.path,
+    // {
+    //     folder: "enchantia",
+    //     crop: "scale"
+    // },
 
 );
     try{
@@ -40,10 +40,11 @@ const uploadedImage = await cloudinary.v2.uploader.upload(
             necdescription: necklaceDescription,
             neccategory: necklaceCategory,
             necprice: necklacePrice,
+            necdetaildescription: necklaceDetailDescription,
             necimagea: uploadedImage.secure_url,
-            necimageb: uploadedImage.secure_url,
-            necimagec: uploadedImage.secure_url,
-            necimaged: uploadedImage.secure_url
+            // necimageb: uploadedImage.secure_url,
+            // necimagec: uploadedImage.secure_url,
+            // necimaged: uploadedImage.secure_url
         });
         await newNecklace.save();
         res.status(201).json({ message: "Product Added Successfully"});  
@@ -65,10 +66,10 @@ router.get("/get_necklaces", async (req, res) => {
 });
 
 //get single product
-router.get("/get_necklace", async (req, res) => {
+router.get("/get_necklace/:id", async (req, res) => {
     try{
         const necklace = await necklaceModel.findById(req.params.id);
-        res.json(product);
+        res.json(necklace);
     }catch(error){
         console.log(error);
         res.status(500).json({error: "Internal server Error"});
@@ -78,9 +79,9 @@ router.get("/get_necklace", async (req, res) => {
 //updating necklace
 router.put("/update_necklace/:id", async(req,res)=>{
     console.log(req.body);
-    const { necklaceName, necklaceDescription, necklaceCategory, necklacePrice }=req.body;
-    const { necklaceImagea, necklaceImageb, necklaceImagec, necklaceImaged} = req.files;
-    if(!necklaceName || !necklaceDescription || !necklaceCategory || !necklacePrice){
+    const { necklaceName, necklaceDescription, necklaceCategory, necklacePrice, necklaceDetailDescription }=req.body;
+    const { necklaceImagea} = req.files;
+    if(!necklaceName || !necklaceDescription || !necklaceCategory || !necklacePrice ||!necklaceDetailDescription){
         return res.status(422).json({error: "Please enter all fields"});
     }
 
@@ -92,21 +93,21 @@ router.put("/update_necklace/:id", async(req,res)=>{
                     folder: "enchantia",
                     crop: "scale"
                 },
-                necklaceImageb.path,
-                {
-                    folder: "enchantia",
-                    crop: "scale"
-                },
-                necklaceImagec.path,
-                {
-                    folder: "enchantia",
-                    crop: "scale"
-                },
-                necklaceImaged.path,
-                {
-                    folder: "enchantia",
-                    crop: "scale"
-                }
+                // necklaceImageb.path,
+                // {
+                //     folder: "enchantia",
+                //     crop: "scale"
+                // },
+                // necklaceImagec.path,
+                // {
+                //     folder: "enchantia",
+                //     crop: "scale"
+                // },
+                // necklaceImaged.path,
+                // {
+                //     folder: "enchantia",
+                //     crop: "scale"
+                // }
             );
 
             //update necklace
@@ -115,10 +116,11 @@ router.put("/update_necklace/:id", async(req,res)=>{
                 necklace.necdescription = necklaceDescription,
                 necklace.neccategory = necklaceCategory,
                 necklace.necprice = necklacePrice,
+                necklace.necdetaildescription = necklaceDetailDescription,
                 necklace.necimagea = uploadedImage.secure_url,
-                necklace.necimageb = uploadedImage.secure_url,
-                necklace.necimagec = uploadedImage.secure_url,
-                necklace.necimaged = uploadedImage.secure_url
+                // necklace.necimageb = uploadedImage.secure_url,
+                // necklace.necimagec = uploadedImage.secure_url,
+                // necklace.necimaged = uploadedImage.secure_url
             
             await necklace.save();
 
@@ -131,6 +133,7 @@ router.put("/update_necklace/:id", async(req,res)=>{
                 necklace.necdescription = necklaceDescription,
                 necklace.neccategory = necklaceCategory,
                 necklace.necprice = necklacePrice,
+                necklace.necdetaildescription = necklaceDetailDescription;
 
                 await necklace.save();
                 
