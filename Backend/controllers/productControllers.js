@@ -12,14 +12,14 @@ router.post("/add", authGuard, async (req, res) => {
         return res.status(422).json({error: "Please enter all fields"});
     }
 
-    // const uploadedImagea = await cloudinary.v2.uploader.upload(
-    //     productImagea.path,
-    //     {
-    //         folder: "enchantia",
-    //         crop: "scale"
-    //     },
+    const uploadedImagea = await cloudinary.v2.uploader.upload(
+        productImagea.path,
+        {
+            folder: "enchantia",
+            crop: "scale"
+        },
         
-    // );
+    );
 
 
     // const uploadedImageb = await cloudinary.v2.uploader.upload(
@@ -40,24 +40,7 @@ router.post("/add", authGuard, async (req, res) => {
     // );
 
     try{
-        // let productImages = [...req.body.images];
-        // let imagesBuffer = [];
-        // for (let i=0; i< images.length; i++){
-        //     const uploadedImagea = await cloudinary.v2.uploader.upload(
-        //         productImage[i],
-        //         {
-        //             folder: "enchantia",
-        //             crop: "scale"
-        //         },
-                
-        //     );
-        //     imagesBuffer.push({
-        //         public_id: uploadedImagea.public_id,
-        //         url: uploadedImagea.secure_url
-        //     })
-        // }
-        // req.body.productImages = imagesBuffer
-
+        
         const newProduct = new productModel({
             name: productName,
             description: productDescription,

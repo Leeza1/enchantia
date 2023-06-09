@@ -119,7 +119,7 @@ const Navbar = () => {
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <Link class="navbar-brand mt-2 mt-lg-0" href="#">
+            <Link class="navbar-brand mt-2 mt-lg-0" to={'/'}>
               <img
                 src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
                 height="15"

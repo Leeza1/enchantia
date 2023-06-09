@@ -318,9 +318,9 @@ const Homepage = () => {
                           <img src={product.imagea} className="img-fluid" alt="" />
                         </div>
                         <div className="product-description">
-                          <p className="section-subheading mb-1">{product.name}</p>
-                          <p className="mb-0 best-seller-heading">{product.description}</p>
-                          <p className="best-seller-sub-heading">{product.category}</p>
+                          <p className="section-subheading mb-1">{product.category}</p>
+                          <p className="mb-0 best-seller-heading">{product.name}</p>
+                          <p className="best-seller-sub-heading">{product.description}</p>
                           <hr />
                           <p className="mb-0 best-seller-heading">{product.price}</p>
                           <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Shop Now</button>

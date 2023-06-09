@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../../store/cartSlice';
 
 const ProductDetails = () => {
+  
+
 
   //get isd from paras
   const { id } = useParams();
@@ -49,6 +51,10 @@ const ProductDetails = () => {
       
     }
     return (
+      
+        
+          
+
       //  <div className='container mt-5'>
       //    <div className="d-flex">
       //        <img className='object-cover rounded-3' height={'500px'} width={'600px'} src={product.image} alt="" />
