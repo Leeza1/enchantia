@@ -5,9 +5,9 @@ const router = require("express").Router();
 
 router.post("/add", authGuard, async(req,res) => {
     console.log(req.body);
-    const { earingName, earingDescription, earingCategory, earingPrice } = req.body;
-    const { earingImagea, earingImageb, earingImagec, earingImaged } = req.files;
-    if(!earingName || !earingDescription || !earingCategory || !earingPrice){
+    const { earingName, earingDescription, earingCategory, earingPrice, earingDetailDescription } = req.body;
+    const { earingImagea } = req.files;
+    if(!earingName || !earingDescription || !earingCategory || !earingPrice ||!earingDetailDescription){
         return res.status(422).json({error: "Please enter all fields"});
     }
 
@@ -17,21 +17,21 @@ const uploadedImage = await cloudinary.v2.uploader.upload(
         folder: "enchantia",
         crop: "scale"
     },
-    earingImageb.path,
-    {
-        folder: "enchantia",
-        crop: "scale"
-    },
-    earingImagec.path,
-    {
-        folder: "enchantia",
-        crop: "scale"
-    },
-    earingImaged.path,
-    {
-        folder: "enchantia",
-        crop: "scale"
-    },
+    // earingImageb.path,
+    // {
+    //     folder: "enchantia",
+    //     crop: "scale"
+    // },
+    // earingImagec.path,
+    // {
+    //     folder: "enchantia",
+    //     crop: "scale"
+    // },
+    // earingImaged.path,
+    // {
+    //     folder: "enchantia",
+    //     crop: "scale"
+    // },
 
 );
     try{
@@ -40,10 +40,11 @@ const uploadedImage = await cloudinary.v2.uploader.upload(
             eardescription: earingDescription,
             earcategory: earingCategory,
             earprice: earingPrice,
+            eardetaildescription: earingDetailDescription,
             earimagea: uploadedImage.secure_url,
-            earimageb: uploadedImage.secure_url,
-            earimagec: uploadedImage.secure_url,
-            earimaged: uploadedImage.secure_url
+            // earimageb: uploadedImage.secure_url,
+            // earimagec: uploadedImage.secure_url,
+            // earimaged: uploadedImage.secure_url
         });
         await newearing.save();
         res.status(201).json({ message: "Product Added Successfully"});  
@@ -59,16 +60,16 @@ router.get("/get_earings", async (req, res) => {
         const earings = await earingModel.find({});
         res.status(200).json(earings);
     }catch(error){
-        console.lgo(error);
+        console.log(error);
         res.status(500).json({error: "Internal Server Error"});
     }
 });
 
 //get single product
-router.get("/get_earing", async (req, res) => {
+router.get("/get_earing/:id", async (req, res) => {
     try{
         const earing = await earingModel.findById(req.params.id);
-        res.json(product);
+        res.json(earing);
     }catch(error){
         console.log(error);
         res.status(500).json({error: "Internal server Error"});
@@ -78,9 +79,9 @@ router.get("/get_earing", async (req, res) => {
 //updating earing
 router.put("/update_earing/:id", async(req,res)=>{
     console.log(req.body);
-    const { earingName, earingDescription, earingCategory, earingPrice }=req.body;
-    const { earingImagea, earingImageb, earingImagec, earingImaged} = req.files;
-    if(!earingName || !earingDescription || !earingCategory || !earingPrice){
+    const { earingName, earingDescription, earingCategory, earingPrice, earingDetailDescription }=req.body;
+    const { earingImagea} = req.files;
+    if(!earingName || !earingDescription || !earingCategory || !earingPrice ||!earingDetailDescription){
         return res.status(422).json({error: "Please enter all fields"});
     }
 
@@ -92,21 +93,21 @@ router.put("/update_earing/:id", async(req,res)=>{
                     folder: "enchantia",
                     crop: "scale"
                 },
-                earingImageb.path,
-                {
-                    folder: "enchantia",
-                    crop: "scale"
-                },
-                earingImagec.path,
-                {
-                    folder: "enchantia",
-                    crop: "scale"
-                },
-                earingImaged.path,
-                {
-                    folder: "enchantia",
-                    crop: "scale"
-                }
+                // earingImageb.path,
+                // {
+                //     folder: "enchantia",
+                //     crop: "scale"
+                // },
+                // earingImagec.path,
+                // {
+                //     folder: "enchantia",
+                //     crop: "scale"
+                // },
+                // earingImaged.path,
+                // {
+                //     folder: "enchantia",
+                //     crop: "scale"
+                // }
             );
 
             //update earing
@@ -115,14 +116,15 @@ router.put("/update_earing/:id", async(req,res)=>{
                 earing.eardescription = earingDescription,
                 earing.earcategory = earingCategory,
                 earing.earprice = earingPrice,
+                earing.eardetaildescription = earingDetailDescription,
                 earing.earimagea = uploadedImage.secure_url,
-                earing.earimageb = uploadedImage.secure_url,
-                earing.earimagec = uploadedImage.secure_url,
-                earing.earimaged = uploadedImage.secure_url
+                // earing.earimageb = uploadedImage.secure_url,
+                // earing.earimagec = uploadedImage.secure_url,
+                // earing.earimaged = uploadedImage.secure_url
             
             await earing.save();
 
-            res.status(201).json({message: "product updated successfully"});
+            res.status(201).json({message: "Earing updated successfully"});
         } else{
 
             //update earing
@@ -131,10 +133,11 @@ router.put("/update_earing/:id", async(req,res)=>{
                 earing.eardescription = earingDescription,
                 earing.earcategory = earingCategory,
                 earing.earprice = earingPrice,
+                earing.eardetaildescription = earingDetailDescription;
 
                 await earing.save();
                 
-                res.status(201).json({ message: "Product updated successfully"});
+                res.status(201).json({ message: "Earing updated successfully"});
         }
     }catch(error) {
         console.log(error);
@@ -142,12 +145,12 @@ router.put("/update_earing/:id", async(req,res)=>{
     }
 });
 
-//delete product
+//delete earing
 router.delete("/delete_earing/:id", authGuard, async (req, res)=>{
     try{
         const earing = await earingModel.findById(req.params.id);
         await earing.deleteOne();
-        res.status(200).json({message: "Product deleted successfully"});
+        res.status(200).json({message: "Earing deleted successfully"});
     } catch(error){
         console.log(error);
         res.status(500).json({ error: "Internal Server Error"});

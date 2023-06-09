@@ -58,7 +58,54 @@ export const getAllNecklaceApi = (data) => Api.get('/api/necklace/get_necklaces'
 export const getSingleNecklaceApi = (id) => Api.get(`/api/necklace/get_necklace/${id}`,config);
 
 //update necklace route
-
-//update necklace route
+export const  updateNecklaceApi  = (id,data) => Api.put(`/api/necklace/update_necklace/${id}` , data, config);
 
 //delete necklace route
+export const deleteNecklaceApi = (id) => Api.delete(`/api/necklace/delete_necklace/${id}`, config);
+
+//add earing route
+export const  addEaringApi  = (data) => Api.post('/api/earing/add', data, config);
+
+//get all earing
+export const getAllEaringsApi = (data) => Api.get('/api/earing/get_earings');
+
+//get single earing
+export const getSingleEaringApi = (id) => Api.get(`/api/earing/get_earing/${id}`,config);
+
+//update earing route
+export const  updateEaringApi  = (id,data) => Api.put(`/api/earing/update_earing/${id}` , data, config);
+
+//delete earing route
+export const deleteEaringApi = (id) => Api.delete(`/api/earing/delete_earing/${id}`, config);
+
+//add bracelet route
+export const  addBraceletApi  = (data) => Api.post('/api/bracelet/add', data, config);
+
+//get all bracelet 
+export const getAllBraceletApi = (data) => Api.get('/api/bracelet/get_bracelets');
+
+//get single bracelet
+export const getSingleBraceletApi = (id) => Api.get(`/api/bracelet/get_bracelet/${id}`,config);
+
+//update bracelet route
+export const  updateBraceletApi  = (id,data) => Api.put(`/api/bracelet/update_bracelet/${id}` , data, config);
+
+//delete bracelet route
+export const deleteBraceletApi = (id) => Api.delete(`/api/bracelet/delete_bracelet/${id}`, config);
+
+//add ring route
+export const  addRingApi  = (data) => Api.post('/api/ring/add', data, config);
+
+//get all ring
+export const getAllRingApi = (data) => Api.get('/api/ring/get_rings');
+
+//get single ring
+export const getSingleRingApi = (id) => Api.get(`/api/ring/get_ring/${id}`,config);
+
+//update ring route
+export const  updateRingApi  = (id,data) => Api.put(`/api/ring/update_ring/${id}` , data, config);
+
+//delete ring route
+export const deleteRingApi = (id) => Api.delete(`/api/ring/delete_ring/${id}`, config);
+
+

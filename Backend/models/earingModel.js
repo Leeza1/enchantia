@@ -17,22 +17,26 @@ const earingSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    eardetaildescription: {
+        type: String,
+        required: true,
+    },
     earimagea: {
         type: String,
         required: true,
     },
-    earimageb: {
-        type: String,
-        required: true,
-    },
-    earimagec: {
-        type: String,
-        required: true,
-    },
-    earimaged: {
-        type: String,
-        required: true,
-    },
+    // earimageb: {
+    //     type: String,
+    //     required: true,
+    // },
+    // earimagec: {
+    //     type: String,
+    //     required: true,
+    // },
+    // earimaged: {
+    //     type: String,
+    //     required: true,
+    // },
 });
 
 const Earing = mongoose.model('Earing', earingSchema);

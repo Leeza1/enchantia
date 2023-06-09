@@ -12,6 +12,11 @@ import Cart from "./pages/cart/Cart";
 import About from "./pages/about/About";
 import Orders from "./pages/orders/Orders";
 import AdminOrders from "./pages/admin/AdminOrders/AdminOrders";
+import List from "./pages/list/List";
+import Bracelet from "./pages/bracelet/Bracelet";
+import Ring from "./pages/ring/Ring";
+import Necklace from "./pages/necklace/Necklace";
+import Earing from "./pages/earing/Earing";
 
 function App() {
   return (
@@ -42,6 +47,21 @@ function App() {
           
           {/* Order */}
           <Route path="/orders" element={<Orders />} />
+
+          {/* list */}
+          <Route path="/list" element={<List />} />
+
+          {/* bracelet */}
+          <Route path='/bracelet' element={<Bracelet />} />
+
+          {/* ring */}
+          <Route path='/ring' element={<Ring />} />
+
+          {/* necklace */}
+          <Route path="/necklace" element={<Necklace />} />
+
+          {/* earing */}
+          <Route path="/earing" element={<Earing />} />
           
           {/* Admin routes */}
           <Route path="/admin-dashboard" element={<AdminDashboard />} />

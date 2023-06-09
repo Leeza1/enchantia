@@ -275,7 +275,7 @@ const Homepage = () => {
           <h5 className="section-heading1 ">Discover our products</h5>
           </div>
           <div className="col-sm-12 col-md-6">
-          <button type="button" class="btn btn-about mt-4 float-xs-start float-md-end" data-mdb-ripple-color="dark">Discover Now</button>
+          <Link to={'/list'}><button type="button" class="btn btn-about mt-4 float-xs-start float-md-end" data-mdb-ripple-color="dark">Discover Now</button></Link>
           </div>
           </div>
         </div>
