@@ -101,11 +101,57 @@ const Earing = () => {
     return (
         <>
             <div className='container mt-5'>
+                <section className="best-seller-section container-padding">
+                    <div className=" container">
+                        <h5 className="section-subheading">Best Seller</h5>
+                        <h5 className="section-heading1">Enjoy the best Seller earing this week</h5>
+                    </div>
+                    <div className="container mt-5">
+                        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                            {
+                                earings.map((earing) => {
+                                    return (
+                                        <Link to={`/earings/details/${earing._id}`} className="col">
+                                            {/* <div className="best-seller-earing">
+                      <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5656635_png/florere-stud-earrings--flower--pink--gold-tone-plated-swarovski-5656635.png" className="img-fluid" alt="" />
+                      <div className="earing-description text-center">
+                        <p className="section-subheading mb-1">{earing.category}</p>
+                        <p className="mb-0 best-seller-heading">{earing.name}</p>
+                        <p className="best-seller-sub-heading">{earing.price}</p>
+                        <hr />
+                        <p className="mb-0 best-seller-heading">{earing.price}</p>
+                        <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Shop Now</button>
+                      </div>
+                    </div> */}
+                                            <div className="best-seller-earing">
+                                                <div className="text-center py-4">
+                                                    <div className="earing-image">
+                                                        <img src={earing.earimagea} className="img-fluid" alt="" />
+                                                    </div>
+                                                    <div className="earing-description">
+                                                        <p className="section-subheading mb-1">{earing.earcategory}</p>
+                                                        <p className="mb-0 best-seller-heading">{earing.earname}</p>
+                                                        <p className="best-seller-sub-heading">{earing.eardescription}</p>
+                                                        <hr />
+                                                        <p className="mb-0 best-seller-heading">{earing.earprice}</p>
+                                                        <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Shop Now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    )
+                                })
+                            }
+
+
+                        </div>
+                    </div>
+                </section>
                 <div className='d-flex justify-content-between'>
                     <h3>Earings</h3>
                     <button type="button" class="btn btn-danger" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
                         Add Product
-                    </button>
+                    </button> <br />
 
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">

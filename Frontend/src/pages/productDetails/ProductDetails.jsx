@@ -34,7 +34,9 @@ const ProductDetails = () => {
   //   }
   // }
     // -------------------------------------
-    const Dispatch = useDispatch();
+    const dispatch = useDispatch();
+
+
     const handleAddToCart = (product) => {
       const cartItem = {
         id: product.id,
@@ -45,9 +47,9 @@ const ProductDetails = () => {
         
         //quantity: cartValue
       } 
-     
+    
       
-      Dispatch(addToCart(cartItem));
+      dispatch(addToCart(cartItem));
       
     }
     return (

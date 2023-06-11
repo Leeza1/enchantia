@@ -17,6 +17,10 @@ import Bracelet from "./pages/bracelet/Bracelet";
 import Ring from "./pages/ring/Ring";
 import Necklace from "./pages/necklace/Necklace";
 import Earing from "./pages/earing/Earing";
+import NecklaceDetails from "./pages/productDetails/NecklaceDetails";
+import BraceletDetails from "./pages/productDetails/BraceletDetails";
+import RingDetails from "./pages/productDetails/RingDetails";
+import EaringDetails from "./pages/productDetails/EaringDetails";
 
 function App() {
   return (
@@ -32,6 +36,10 @@ function App() {
 
           {/* product details */}
           <Route path="/products/details/:id" element={<ProductDetails />} />
+          <Route path="/necklace/details/:id" element={<NecklaceDetails />} />
+          <Route path="/bracelete/details/:id" element={<BraceletDetails />} />
+          <Route path="/ring/details/:id" element={<RingDetails />} />
+          <Route path="/earing/details/:id" element={<EaringDetails />} />
 
           {/* cart */}
           <Route path="/cart" element={<Cart />} />
