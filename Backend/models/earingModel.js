@@ -14,7 +14,7 @@ const earingSchema = new mongoose.Schema({
         required: true,
     },
     earprice: {
-        type: String,
+        type: Number,
         required: true,
     },
     eardetaildescription: {

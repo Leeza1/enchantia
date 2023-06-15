@@ -14,7 +14,7 @@ const braceletSchema = new mongoose.Schema({
         required: true,
     },
     bracprice: {
-        type: String,
+        type: Number,
         required: true,
     },
     bracimagea: {

@@ -101,6 +101,42 @@ const Bracelet = () => {
     return (
         <>
             <div className='container mt-5'>
+                <section className="best-seller-section container-padding">
+                    <div className=" container">
+                        <h5 className="section-subheading">Best Seller</h5>
+                        <h5 className="section-heading1">Enjoy the best Seller earing this week</h5>
+                    </div>
+                    <div className="container mt-5">
+                        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                            {
+                                bracelets.map((bracelet) => {
+                                    return (
+                                        <Link to={`/bracelets/details/${bracelet._id}`} className="col">
+
+                                            <div className="best-seller-earing">
+                                                <div className="text-center py-4">
+                                                    <div className="ring-image">
+                                                        <img src={bracelet.bracimagea} className="img-fluid" alt="" />
+                                                    </div>
+                                                    <div className="ring-description">
+                                                        <p className="section-subheading mb-1">{bracelet.braccategory}</p>
+                                                        <p className="mb-0 best-seller-heading">{bracelet.bracname}</p>
+                                                        <p className="best-seller-sub-heading">{bracelet.bracdescription}</p>
+                                                        <hr />
+                                                        <p className="mb-0 best-seller-heading">NRP. {bracelet.bracprice}</p>
+                                                        <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Shop Now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    )
+                                })
+                            }
+
+
+                        </div>
+                    </div>
+                </section>
                 <div className='d-flex justify-content-between'>
                     <h3>Bracelets</h3>
                     <button type="button" class="btn btn-danger" data-mdb-toggle="modal" data-mdb-target="#exampleModal">

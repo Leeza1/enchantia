@@ -21,6 +21,7 @@ import NecklaceDetails from "./pages/productDetails/NecklaceDetails";
 import BraceletDetails from "./pages/productDetails/BraceletDetails";
 import RingDetails from "./pages/productDetails/RingDetails";
 import EaringDetails from "./pages/productDetails/EaringDetails";
+import Search from "./pages/search/Search";
 
 function App() {
   return (
@@ -36,10 +37,10 @@ function App() {
 
           {/* product details */}
           <Route path="/products/details/:id" element={<ProductDetails />} />
-          <Route path="/necklace/details/:id" element={<NecklaceDetails />} />
-          <Route path="/bracelete/details/:id" element={<BraceletDetails />} />
-          <Route path="/ring/details/:id" element={<RingDetails />} />
-          <Route path="/earing/details/:id" element={<EaringDetails />} />
+          <Route path="/necklaces/details/:id" element={<NecklaceDetails />} />
+          <Route path="/bracelets/details/:id" element={<BraceletDetails />} />
+          <Route path="/rings/details/:id" element={<RingDetails />} />
+          <Route path="/earings/details/:id" element={<EaringDetails />} />
 
           {/* cart */}
           <Route path="/cart" element={<Cart />} />
@@ -70,6 +71,11 @@ function App() {
 
           {/* earing */}
           <Route path="/earing" element={<Earing />} />
+
+          
+          
+          {/* search */}
+          <Route path="/search/:query" element={<Search />} />
           
           {/* Admin routes */}
           <Route path="/admin-dashboard" element={<AdminDashboard />} />

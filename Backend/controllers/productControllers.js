@@ -166,5 +166,36 @@ router.delete("/delete_product/:id", authGuard, async (req, res) => {
     }
 });
 
+//search product
+router.get("/search_product/:name", async(req,res) => {
+    try{
+        const products = await productModel.find({
+            name: {
+                $regex: req.params.name,
+                $options: 'i'
+            }
+        });
+        res.status(200).json(products);
+    }catch(error){
+        console.log(error);
+        res.status(500).json({error: "Internal Server Error"});
+    }
+});
+
+//count products, pending orders deleiverdd orders users
+router.get("/count", async (req, res) => {
+    try{
+        const productCount = await productModel.countDocuments({});
+        const pendingOrders = await Orders.countDocuments({status: "Pending"});
+        const deliveredOrders = await Orders.countDocuments({status: "Delivered"});
+        const userCount = await userModel.countDocuments({});
+
+        res.status(200).json({ productCount, pendingOrders, deliveredOrders, userCount });
+
+    }catch(error){
+        console.log(error);
+        res.status(500).json({error: "Internal Server Error"});
+    }
+});
 
 module.exports = router;

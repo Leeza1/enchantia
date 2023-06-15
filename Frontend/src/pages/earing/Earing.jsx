@@ -112,17 +112,7 @@ const Earing = () => {
                                 earings.map((earing) => {
                                     return (
                                         <Link to={`/earings/details/${earing._id}`} className="col">
-                                            {/* <div className="best-seller-earing">
-                      <img src="https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_700/5656635_png/florere-stud-earrings--flower--pink--gold-tone-plated-swarovski-5656635.png" className="img-fluid" alt="" />
-                      <div className="earing-description text-center">
-                        <p className="section-subheading mb-1">{earing.category}</p>
-                        <p className="mb-0 best-seller-heading">{earing.name}</p>
-                        <p className="best-seller-sub-heading">{earing.price}</p>
-                        <hr />
-                        <p className="mb-0 best-seller-heading">{earing.price}</p>
-                        <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Shop Now</button>
-                      </div>
-                    </div> */}
+                                            
                                             <div className="best-seller-earing">
                                                 <div className="text-center py-4">
                                                     <div className="earing-image">
@@ -133,7 +123,7 @@ const Earing = () => {
                                                         <p className="mb-0 best-seller-heading">{earing.earname}</p>
                                                         <p className="best-seller-sub-heading">{earing.eardescription}</p>
                                                         <hr />
-                                                        <p className="mb-0 best-seller-heading">{earing.earprice}</p>
+                                                        <p className="mb-0 best-seller-heading">NRP. {earing.earprice}</p>
                                                         <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Shop Now</button>
                                                     </div>
                                                 </div>

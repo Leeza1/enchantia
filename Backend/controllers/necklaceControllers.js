@@ -60,7 +60,7 @@ router.get("/get_necklaces", async (req, res) => {
         const necklaces = await necklaceModel.find({});
         res.status(200).json(necklaces);
     }catch(error){
-        console.lgo(error);
+        console.log(error);
         res.status(500).json({error: "Internal Server Error"});
     }
 });
@@ -154,6 +154,22 @@ router.delete("/delete_necklace/:id", authGuard, async (req, res)=>{
     } catch(error){
         console.log(error);
         res.status(500).json({ error: "Internal Server Error"});
+    }
+});
+
+//search necklace
+router.get("/search_necklace/:name", async(req,res) => {
+    try{
+        const necklaces = await necklaceModel.find({
+            name: {
+                $regex: req.params.name,
+                $options: 'i'
+            }
+        });
+        res.status(200).json(necklaces);
+    }catch(error){
+        console.log(error);
+        res.status(500).json({error: "Internal Server Error"});
     }
 });
 

@@ -42,7 +42,7 @@ const Orders = () => {
                                 {
                                     orders.cart.map((item) => (
                                         <tr>
-                                            <th scope="row"><img src={item.image} alt="" width={100} /></th>
+                                            <th scope="row"><img src={item.imagea} alt="" width={100} /></th>
                                             <td>{item.name}</td>
                                             <td>{item.category}</td>
                                             <td>{item.price}</td>

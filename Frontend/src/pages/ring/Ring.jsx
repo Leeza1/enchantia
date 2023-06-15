@@ -101,6 +101,42 @@ const Ring = () => {
     return (
         <>
             <div className='container mt-5'>
+                <section className="best-seller-section container-padding">
+                    <div className=" container">
+                        <h5 className="section-subheading">Best Seller</h5>
+                        <h5 className="section-heading1">Enjoy the best Seller earing this week</h5>
+                    </div>
+                    <div className="container mt-5">
+                        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                            {
+                                rings.map((ring) => {
+                                    return (
+                                        <Link to={`/rings/details/${ring._id}`} className="col">
+
+                                            <div className="best-seller-earing">
+                                                <div className="text-center py-4">
+                                                    <div className="ring-image">
+                                                        <img src={ring.ringimagea} className="img-fluid" alt="" />
+                                                    </div>
+                                                    <div className="ring-description">
+                                                        <p className="section-subheading mb-1">{ring.ringcategory}</p>
+                                                        <p className="mb-0 best-seller-heading">{ring.ringname}</p>
+                                                        <p className="best-seller-sub-heading">{ring.ringdescription}</p>
+                                                        <hr />
+                                                        <p className="mb-0 best-seller-heading">NRP. {ring.ringprice}</p>
+                                                        <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Shop Now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    )
+                                })
+                            }
+
+
+                        </div>
+                    </div>
+                </section>
                 <div className='d-flex justify-content-between'>
                     <h3>Rings</h3>
                     <button type="button" class="btn btn-danger" data-mdb-toggle="modal" data-mdb-target="#exampleModal">

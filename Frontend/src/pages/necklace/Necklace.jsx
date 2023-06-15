@@ -101,6 +101,42 @@ const Necklace = () => {
     return (
         <>
             <div className='container mt-5'>
+                <section className="best-seller-section container-padding">
+                    <div className=" container">
+                        <h5 className="section-subheading">Best Seller</h5>
+                        <h5 className="section-heading1">Enjoy the best Seller earing this week</h5>
+                    </div>
+                    <div className="container mt-5">
+                        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                            {
+                                necklaces.map((necklace) => {
+                                    return (
+                                        <Link to={`/necklaces/details/${necklace._id}`} className="col">
+
+                                            <div className="best-seller-earing">
+                                                <div className="text-center py-4">
+                                                    <div className="necklace-image">
+                                                        <img src={necklace.necimagea} className="img-fluid" alt="" />
+                                                    </div>
+                                                    <div className="earing-description">
+                                                        <p className="section-subheading mb-1">{necklace.neccategory}</p>
+                                                        <p className="mb-0 best-seller-heading">{necklace.necname}</p>
+                                                        <p className="best-seller-sub-heading">{necklace.necdescription}</p>
+                                                        <hr />
+                                                        <p className="mb-0 best-seller-heading">NRP. {necklace.necprice}</p>
+                                                        <button type="button" class="btn btn-about mt-3" data-mdb-ripple-color="dark">Shop Now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    )
+                                })
+                            }
+
+
+                        </div>
+                    </div>
+                </section>
                 <div className='d-flex justify-content-between'>
                     <h3>Necklaces</h3>
                     <button type="button" class="btn btn-danger" data-mdb-toggle="modal" data-mdb-target="#exampleModal">

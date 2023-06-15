@@ -14,7 +14,7 @@ const necklaceSchema = new mongoose.Schema({
         required: true,
     },
     necprice: {
-        type: String,
+        type: Number,
         required: true,
     },
     necdetaildescription: {

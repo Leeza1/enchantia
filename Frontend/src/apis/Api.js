@@ -30,6 +30,9 @@ export const  addProductApi  = (data) => Api.post('/api/product/add', data, conf
 //get all products
 export const  getAllProductsApi  = (data) => Api.get('/api/product/get_products');
 
+//update order status
+export const updateOrderStatusApi = (id, data) => Api.put(`/api/orders/change_status/${id}`, data, config);
+
 //get single product
 export const  getSingleProductApi  = (id) => Api.get(`/api/product/get_product/${id}`);
 
@@ -107,5 +110,14 @@ export const  updateRingApi  = (id,data) => Api.put(`/api/ring/update_ring/${id}
 
 //delete ring route
 export const deleteRingApi = (id) => Api.delete(`/api/ring/delete_ring/${id}`, config);
+
+//product search
+export const searchProductsApi = (query) => Api.get(`/api/product/search_product/${query}`);
+
+//necklace search
+export const searchNecklaceApi = (query) => Api.get(`/api/necklace/search_necklace/${query}`);
+
+//count products
+export const getCount = () => Api.get('/api/product/count');
 
 

@@ -22,26 +22,26 @@ const RingDetails = () => {
   }, [id]);
 
   //add and remove quantity
-  // const [cartValue, setCartValue] = useState(1);
+  const [cartValue, setCartValue] = useState(1);
 
-  // const handleAddQuantity = () => {
-  //   setCartValue(cartValue + 1);
-  // }
+  const handleAddQuantity = () => {
+    setCartValue(cartValue + 1);
+  }
 
-  // const handleRemoveQuantity = () => {
-  //   if (cartValue > 1) {
-  //     setCartValue(cartValue - 1);
-  //   }
-  // }
+  const handleRemoveQuantity = () => {
+    if (cartValue > 1) {
+      setCartValue(cartValue - 1);
+    }
+  }
     // -------------------------------------
     const dispatch = useDispatch();
-    const handleAddToCart = (ring) => {
+    const handleAddToCart = () => {
       const cartItem = {
         id: ring.id,
-        ringname: ring.ringname,
-        ringprice: ring.ringprice,
-        ringimagea: ring.ringimagea,
-        ringcategory: ring.ringcategory,
+        name: ring.ringname,
+        price: ring.ringprice,
+        imagea: ring.ringimagea,
+        category: ring.ringcategory,
         
         //quantity: cartValue
       } 
@@ -83,21 +83,21 @@ const RingDetails = () => {
         <section className='container-padding'>
           <div className='container mt-3'>
             <div className='row'>
-              <div className='col-md-6 col-sm-12 ring-carousel'>
+              <div className='col-md-6 col-sm-12 product-carousel'>
 
                 <div id="carouselExampleIndicators" className="carousel slide carousel-fade carosel-height" data-mdb-ride="carousel">
 
                   <div className="carousel-inner mb-5">
-                    <div className="carousel-item active ring-item">
+                    <div className="carousel-item active product-item">
                       <img src={ring.ringimagea} className="d-block w-100" alt="..." />
                     </div>
-                    <div className="carousel-item ring-item">
+                    {/* <div className="carousel-item ring-item">
                       <img src={ring.ringimagea} className="d-block w-100"
                         alt="..." />
                     </div>
                     <div className="carousel-item ring-item">
                       <img src={ring.ringimagea} className="d-block w-100" alt="..." />
-                    </div>
+                    </div> */}
                   </div>
                   <button className="carousel-control-prev left-arrow" type="button" data-mdb-target="#carouselExampleIndicators"
                     data-mdb-slide="prev">
@@ -111,24 +111,29 @@ const RingDetails = () => {
                   </button>
                 </div>
               </div>
-              <div className='col-md-6 col-sm-12 ring-description'>
+              <div className='col-md-6 col-sm-12 product-description'>
                 <div>
                   <p className='section-subheading'>{ring.ringcategory} </p>
                   <p className='primary-heading-low'>{ring.ringname}</p>
                   <p className='best-seller-heading'>{ring.ringdescription}</p>
                 </div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-black" onClick={handleRemoveQuantity}>-</button>
+                <input type="text" value={cartValue} />
+                <button type="button" class="btn btn-outline-black" onClick={handleAddQuantity}>+</button>
+              </div>
                 <div className='d-flex flex-row'>
                   <div>
                     <span className='stock'>In stock</span>
                   </div>
-                  <div className="tp-ring-details-rating">
+                  <div className="tp-product-details-rating">
                     <span><i className="fa-solid fa-star"></i></span>
                     <span><i className="fa-solid fa-star"></i></span>
                     <span><i className="fa-solid fa-star"></i></span>
                     <span><i className="fa-solid fa-star"></i></span>
                     <span><i className="fa-solid fa-star"></i></span>
                   </div>
-                  <div className="tp-ring-details-reviews ms-2">
+                  <div className="tp-product-details-reviews ms-2">
                     <span>(36 Reviews)</span>
                   </div>
                 </div>
@@ -146,7 +151,7 @@ const RingDetails = () => {
                   <div className='pe-3'><button type="button" className="btn btn-about mt-3 " data-mdb-ripple-color="dark" onClick={handleAddToCart}>Add to Cart</button></div>
                   <div><button type="button" className="btn btn-about mt-3 " data-mdb-ripple-color="dark">Wishlist</button></div>
                 </div> 
-                <div className="tp-ring-details-social mt-4">
+                <div className="tp-product-details-social mt-4">
                   <span className='para'>Share: </span>
                   <Link href="#"><i className="fa-brands fa-facebook-f"></i></Link>
                   <Link href="#"><i className="fa-brands fa-twitter"></i></Link>

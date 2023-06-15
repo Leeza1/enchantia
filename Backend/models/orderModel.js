@@ -20,7 +20,7 @@ const orderSchema = new mongoose.Schema({
             category: {
                 type: String,
             },
-            image: {
+            imagea: {
                 type: String,
             }
         }

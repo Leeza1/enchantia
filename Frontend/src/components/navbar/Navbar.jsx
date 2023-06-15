@@ -17,7 +17,7 @@ const Navbar = () => {
 
   //get cart value form reducer
   const { cart } = useSelector((state) => ({
-    cart: state.cart?.cart
+    cart: state.cart.cart
   
   }))
   
@@ -155,7 +155,7 @@ const Navbar = () => {
 
           <Link to={'/cart'} className="m-2">
               <i className="fa fa-shopping-cart fa-lg"></i>
-              <span className="badge rounded-pill badge-notification bg-danger">{cart && cart.length}</span>
+              <span className="badge rounded-pill badge-notification bg-danger">{cart.length}</span>
             </Link>
 
 

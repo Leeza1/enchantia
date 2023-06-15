@@ -14,7 +14,7 @@ const ringSchema = new mongoose.Schema({
         required: true,
     },
     ringprice: {
-        type: String,
+        type: Number,
         required: true,
     },
     ringdetaildescription: {
