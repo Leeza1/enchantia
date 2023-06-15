@@ -117,6 +117,15 @@ export const searchProductsApi = (query) => Api.get(`/api/product/search_product
 //necklace search
 export const searchNecklaceApi = (query) => Api.get(`/api/necklace/search_necklace/${query}`);
 
+//earing search
+export const searchEaringApi = (query) => Api.get(`/api/earing/search_earing/${query}`);
+
+//earing search
+export const searchBraceletApi = (query) => Api.get(`/api/bracelet/search_bracelet/${query}`);
+
+//earing search
+export const searchRingApi = (query) => Api.get(`/api/ring/search_ring/${query}`);
+
 //count products
 export const getCount = () => Api.get('/api/product/count');
 

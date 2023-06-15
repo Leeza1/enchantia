@@ -158,11 +158,11 @@ router.delete("/delete_necklace/:id", authGuard, async (req, res)=>{
 });
 
 //search necklace
-router.get("/search_necklace/:name", async(req,res) => {
+router.get("/search_necklace/:neccategory", async(req,res) => {
     try{
         const necklaces = await necklaceModel.find({
-            name: {
-                $regex: req.params.name,
+            neccategory: {
+                $regex: req.params.neccategory,
                 $options: 'i'
             }
         });

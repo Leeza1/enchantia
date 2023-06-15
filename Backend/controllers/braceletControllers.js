@@ -157,4 +157,20 @@ router.delete("/delete_bracelet/:id", authGuard, async (req, res)=>{
     }
 });
 
+//search bracelet
+router.get("/search_bracelet/:braccategory", async(req,res) => {
+    try{
+        const bracelets = await braceletModel.find({
+            braccategory: {
+                $regex: req.params.braccategory,
+                $options: 'i'
+            }
+        });
+        res.status(200).json(bracelets);
+    }catch(error){
+        console.log(error);
+        res.status(500).json({error: "Internal Server Error"});
+    }
+});
+
 module.exports = router;

@@ -167,11 +167,11 @@ router.delete("/delete_product/:id", authGuard, async (req, res) => {
 });
 
 //search product
-router.get("/search_product/:name", async(req,res) => {
+router.get("/search_product/:category", async(req,res) => {
     try{
         const products = await productModel.find({
-            name: {
-                $regex: req.params.name,
+            category: {
+                $regex: req.params.category,
                 $options: 'i'
             }
         });

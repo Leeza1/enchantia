@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../../components/card/Card'
 import { useParams } from 'react-router-dom';
-import { searchNecklaceApi, searchProductsApi } from '../../apis/Api';
+import { searchBraceletApi, searchEaringApi, searchNecklaceApi, searchRingApi } from '../../apis/Api';
 import { toast } from 'react-toastify';
 
 const Search = () => {
 
     const { query } = useParams();
-    const [products, setProducts] = useState([]);
+    
     const [necklaces, setNecklaces] = useState([]);
-    const [item, setItems] = useState([]);
+    const [earings, setEarings] = useState([]);
+    const [bracelets, setBracelets] = useState([]);
+    const [rings, setRings] = useState([]);
+    
         
     
     const [searchQuery, setSearchQuery] = useState(query);
@@ -33,12 +36,6 @@ const Search = () => {
 
 
     useEffect(() => {
-        searchProductsApi(query).then(res => {
-            console.log(res.data)
-            setProducts(res.data)
-        }).catch(err => {
-            console.log(err)
-        });
 
         //fetch necklaces
         searchNecklaceApi(query).then(res => {
@@ -47,24 +44,52 @@ const Search = () => {
         }).catch(err => {
             console.log(err)
         });
+
+        //fetch earing
+        searchEaringApi(query).then(res => {
+            console.log(res.data)
+            setEarings(res.data)
+        }).catch(err => {
+            console.log(err)
+        });
+
+        //fetch bracelet
+        searchBraceletApi(query).then(res => {
+            console.log(res.data)
+            setBracelets(res.data)
+        }).catch(err => {
+            console.log(err)
+        });
+
+        //fetch ring
+        searchRingApi(query).then(res => {
+            console.log(res.data)
+            setRings(res.data)
+        }).catch(err => {
+            console.log(err)
+        });
     })
 
-    useEffect(() => {
-        // Combine products and necklaces into items array
-        const combinedItems = [...products, ...necklaces];
-        setItems(combinedItems);
-      }, [products, necklaces]);
+    // useEffect(() => {
+    //     // Combine products and necklaces into items array
+    //     const combinedItems = [...products, ...necklaces];
+    //     setItems(combinedItems);
+    //   }, [products, necklaces]);
 
     // 
     const handleSearch = (e) => {
         e.preventDefault();
       
-        Promise.all([searchProductsApi(searchQuery), searchNecklaceApi(searchQuery)])
+        Promise.all([searchNecklaceApi(searchQuery), searchEaringApi(searchQuery), searchBraceletApi(searchQuery), searchRingApi(searchQuery)])
           .then((res,) => {
             console.log(res.data);
-            setProducts(res.data);
-            console.log(res.data);
             setNecklaces(res.data);
+            console.log(res.data);
+            setEarings(res.data);
+            console.log(res.data);
+            setBracelets(res.data);
+            console.log(res.data);
+            setRings(res.data);
           })
           .catch(err => {
             console.log(err);
@@ -90,9 +115,17 @@ const Search = () => {
             <div className='row row-cols-1 row-cols-md-4 g-4 row'>
                 {
                     
-                    item.length > 0 ? item.map(item => (
-                        <Card product={item} />
-                    )) : <h4>No product found</h4>
+                    necklaces.length > 0 ? necklaces.map(necklaces => (
+                        <Card necklace={necklaces} /> 
+                    )): rings.length > 0 ? rings.map(rings => (
+                        <Card ring={rings} />
+                    )): bracelets.length > 0 ? bracelets.map(bracelets => (
+                        <Card bracelet={bracelets} />
+                    )): earings.length > 0 ? earings.map(earings => (
+                        <Card earing={earings} />
+                    )): <h4>No product Found</h4>
+                    
+                    
                 }
             </div>
         </div>

@@ -157,4 +157,20 @@ router.delete("/delete_earing/:id", authGuard, async (req, res)=>{
     }
 });
 
+//search earing
+router.get("/search_earing/:earcategory", async(req,res) => {
+    try{
+        const earings = await earingModel.find({
+            earcategory: {
+                $regex: req.params.earcategory,
+                $options: 'i'
+            }
+        });
+        res.status(200).json(earings);
+    }catch(error){
+        console.log(error);
+        res.status(500).json({error: "Internal Server Error"});
+    }
+});
+
 module.exports = router;

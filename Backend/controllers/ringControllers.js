@@ -157,4 +157,20 @@ router.delete("/delete_ring/:id", authGuard, async (req, res)=>{
     }
 });
 
+//search earing
+router.get("/search_ring/:ringcategory", async(req,res) => {
+    try{
+        const rings = await ringModel.find({
+            ringcategory: {
+                $regex: req.params.ringcategory,
+                $options: 'i'
+            }
+        });
+        res.status(200).json(rings);
+    }catch(error){
+        console.log(error);
+        res.status(500).json({error: "Internal Server Error"});
+    }
+});
+
 module.exports = router;
